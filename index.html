@@ -8,168 +8,155 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
+            /* Restoring the Dreamy Blue from your image */
             --deep-midnight: #05070a;
-            --soft-glow: rgba(178, 190, 255, 0.12);
+            --nebula-blue: #0d1b3e;
+            --star-glow: rgba(255, 255, 255, 0.4);
         }
 
         body { 
             font-family: 'Playfair Display', serif; 
             background-color: var(--deep-midnight);
-            /* Deep celestial gradient mimicking your nebula image */
-            background: radial-gradient(circle at 50% 0%, #0d1b3e 0%, var(--deep-midnight) 70%);
+            /* Creating the nebula glow background from your dreamy image */
+            background: radial-gradient(circle at 50% 30%, #1a2a6c 0%, var(--deep-midnight) 80%);
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* 1. THE STARDUST BACKGROUND (The "Little Stars") */
-        .star-field {
+        /* 1. THE LITTLE STARS (Static Starfield) */
+        .stars-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, white, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 90px 40px, white, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 300px 300px;
             opacity: 0.15;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* 2. FLOATING NEBULA BLOBS */
-        .nebula {
-            position: absolute;
-            width: 1000px; height: 1000px;
-            background: radial-gradient(circle, var(--soft-glow) 0%, transparent 70%);
-            filter: blur(120px);
-            z-index: -1;
-            animation: drift 40s infinite alternate ease-in-out;
-        }
-        @keyframes drift {
-            from { transform: translate(-20%, -10%) scale(1); }
-            to { transform: translate(10%, 15%) scale(1.1); }
-        }
-
-        /* 3. AMIRA-STYLE TICKER (Refined & Slow) */
-        .ticker-wrap {
-            width: 100%;
-            overflow: hidden;
-            padding: 40px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        /* 2. THE PLANET ALIGNMENT (From Amira Screenshot) */
+        .planet-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            margin: 5rem 0;
             position: relative;
             z-index: 10;
         }
-        .ticker-wrap::before, .ticker-wrap::after {
-            content: ""; position: absolute; top: 0; width: 250px; height: 100%; z-index: 2;
+        .planet {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-size: cover;
+            filter: brightness(0.8) drop-shadow(0 0 10px rgba(255,255,255,0.1));
+            transition: 1s ease;
         }
-        .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--deep-midnight), transparent); }
-        .ticker-wrap::after { right: 0; background: linear-gradient(to left, var(--deep-midnight), transparent); }
+        .planet:hover { filter: brightness(1); transform: scale(1.1); }
+        
+        /* The specific cross-stars from the Amira screenshot */
+        .cross-star {
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            opacity: 0.5;
+            text-shadow: 0 0 10px white;
+            animation: twinkle 4s infinite alternate;
+        }
+        @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.8; } }
 
+        /* 3. AMIRA EDITORIAL TEXT */
+        .hero-text {
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            font-weight: 400;
+            letter-spacing: -0.01em;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        }
+
+        /* 4. ZODIAC TICKER (Slow & Faded) */
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            padding: 35px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            animation: scroll 60s linear infinite; /* Very slow for luxury feel */
+            animation: scroll 60s linear infinite;
         }
         .ticker span {
             display: inline-block;
-            margin: 0 60px;
-            font-size: 18px; /* Smaller and more delicate */
-            color: rgba(255, 255, 255, 0.15); /* Faint and subtle */
-            font-weight: 300;
+            margin: 0 50px;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.15);
         }
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-        }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-        /* 4. TEXT STYLING (The "Amira" Look) */
         .nav-link {
-            font-size: 12px;
+            font-size: 11px;
             letter-spacing: 0.5em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.4);
             font-style: italic;
-            transition: 0.6s;
         }
-        .nav-link:hover { color: #fff; text-shadow: 0 0 10px #fff; }
-
-        .main-title {
-            font-size: clamp(3rem, 10vw, 8rem);
-            font-style: italic;
-            font-weight: 400;
-            line-height: 1.1;
-            text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
-        }
-
-        /* 5. LUXURY IMAGE MASKING */
-        .image-reveal {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
-            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
-        }
-        .tarot-image {
-            width: 100%;
-            height: 800px;
-            object-fit: cover;
-            filter: brightness(0.7) contrast(1.1) saturate(0.8);
-            transition: 1.5s ease;
-        }
-        .image-reveal:hover .tarot-image { filter: brightness(0.9); transform: scale(1.02); }
-
     </style>
 </head>
 <body>
 
-    <div class="star-field"></div>
-    <div class="nebula" style="top: -10%; left: -5%;"></div>
-    <div class="nebula" style="bottom: 0%; right: -10%; animation-delay: -10s;"></div>
+    <div class="stars-overlay"></div>
 
-    <nav class="py-24 text-center relative z-50">
-        <h1 class="text-3xl tracking-[0.8em] mb-12 font-light opacity-80">The Dreamy Reality</h1>
-        <div class="flex justify-center space-x-20">
-            <a href="#offerings" class="nav-link">Offerings</a>
-            <a href="#philosophy" class="nav-link">Philosophy</a>
+    <nav class="flex justify-between items-center px-16 py-12 relative z-50">
+        <h1 class="text-2xl tracking-[0.6em] font-light opacity-80 italic">The Dreamy Reality</h1>
+        <div class="flex space-x-14 items-center">
+            <a href="#services" class="nav-link">Services</a>
             <a href="#contact" class="nav-link">Contact</a>
+            <button class="border border-white/10 px-10 py-2.5 rounded-full text-[10px] tracking-[0.4em] hover:bg-white hover:text-black transition-all">BOOK NOW</button>
         </div>
     </nav>
 
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>☉</span> <span>☽</span> <span>☿</span> <span>♀</span> <span>♂</span> <span>♃</span> <span>♄</span> <span>✧</span> <span>❂</span> <span>☾</span>
-            <span>☉</span> <span>☽</span> <span>☿</span> <span>♀</span> <span>♂</span> <span>♃</span> <span>♄</span> <span>✧</span> <span>❂</span> <span>☾</span>
+            <span>♌︎</span> <span>♍︎</span> <span>♎︎</span> <span>♏︎</span> <span>♐︎</span> <span>♑︎</span> <span>♒︎</span> <span>♓︎</span> <span>♈︎</span> <span>♉︎</span> <span>♊︎</span> <span>♋︎</span>
+            <span>♌︎</span> <span>♍︎</span> <span>♎︎</span> <span>♏︎</span> <span>♐︎</span> <span>♑︎</span> <span>♒︎</span> <span>♓︎</span> <span>♈︎</span> <span>♉︎</span> <span>♊︎</span> <span>♋︎</span>
         </div>
     </div>
 
-    <header class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-40 relative z-10">
-        <p class="text-[10px] tracking-[1.2em] uppercase text-white/30 mb-12">Consciousness is the only reality</p>
-        <h2 class="main-title">Assume the <br> Feeling.</h2>
-        <div class="mt-24 w-[1px] h-40 bg-gradient-to-b from-white/20 to-transparent"></div>
+    <header class="min-h-screen flex flex-col items-center justify-center text-center px-8 relative z-10">
+        
+        <div class="planet-row">
+            <div class="cross-star" style="top: -30px; left: 15%;">✦</div>
+            <div class="cross-star" style="bottom: -20px; right: 20%;">✦</div>
+            
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?q=80&w=100&auto=format&fit=crop');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=100&auto=format&fit=crop');"></div>
+            <div class="planet" style="width: 65px; height: 65px; border: 1px solid rgba(255,255,255,0.2); background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?q=80&w=100&auto=format&fit=crop');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614732484003-ef9881555dc3?q=80&w=100&auto=format&fit=crop');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614726339050-d7c30f40277f?q=80&w=100&auto=format&fit=crop');"></div>
+        </div>
+
+        <h2 class="hero-text italic">
+            One on one guidance, birth chart readings, & cosmic insight for clarity in love, work, and self.
+        </h2>
+
+        <div class="mt-32 w-[1px] h-48 bg-gradient-to-b from-white/20 to-transparent"></div>
     </header>
 
-    <section id="offerings" class="py-60 px-6 relative z-10">
-        <div class="max-w-7xl mx-auto flex flex-col items-center">
-            <div class="image-reveal mb-24">
-                <img src="https://images.unsplash.com/photo-1572916138170-01cc3d2e5d71?auto=format&fit=crop&q=80&w=1500" class="tarot-image" alt="Tarot">
-            </div>
-            <div class="max-w-2xl text-center">
-                <span class="text-[11px] italic tracking-[0.4em] text-white/40 mb-6 block uppercase">Guidance</span>
-                <h3 class="text-5xl italic mb-10 font-light">Celestial Tarot</h3>
-                <p class="text-white/50 font-light leading-relaxed text-xl mb-12">A mirror for the soul. We explore the archetypal frequencies currently shaping your physical world.</p>
-                <a href="#" class="text-[12px] italic tracking-[0.5em] border-b border-white/10 pb-2 hover:border-white transition-all uppercase">Book Journey</a>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact" class="py-60 text-center border-t border-white/5 relative z-10">
-        <div class="max-w-xl mx-auto">
-            <h2 class="text-3xl italic mb-16 opacity-70">Connect with the Dream</h2>
-            <form name="newsletter" method="POST" data-netlify="true" class="px-10">
-                <input type="email" name="email" required placeholder="EMAIL ADDRESS" class="bg-transparent border-b border-white/10 w-full py-6 text-center focus:border-white outline-none italic text-white/80 text-lg transition-all mb-12">
-                <button type="submit" class="text-white/30 italic hover:text-white transition tracking-[0.6em] text-[10px] uppercase">Subscribe</button>
-            </form>
-            <p class="mt-40 text-[8px] tracking-[0.8em] text-white/10 italic uppercase">The Dreamy Reality &copy; 2026</p>
-        </div>
+    <footer class="py-40 text-center relative z-10 border-t border-white/5">
+        <p class="text-[9px] tracking-[0.8em] text-white/5 italic uppercase">The Dreamy Reality &copy; 2026</p>
     </footer>
 
 </body>
