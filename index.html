@@ -5,111 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dreamy Reality | Tarot & Manifestation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-space: #0a0e21;
-            --nebula-glow: rgba(178, 190, 255, 0.15);
-            --starlight: #FAF9F6;
+            --deep-midnight: #05070a;
+            --soft-glow: rgba(178, 190, 255, 0.12);
         }
 
         body { 
             font-family: 'Playfair Display', serif; 
-            background-color: var(--deep-space);
-            background: radial-gradient(circle at top right, #1a2a6c, #0a0e21 50%),
-                        linear-gradient(180deg, #0a0e21 0%, #16213e 100%);
-            color: var(--starlight);
+            background-color: var(--deep-midnight);
+            /* Deep celestial gradient mimicking your nebula image */
+            background: radial-gradient(circle at 50% 0%, #0d1b3e 0%, var(--deep-midnight) 70%);
+            color: #ffffff;
             margin: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* Floating Light Blobs from your image */
-        .blob {
-            position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, var(--nebula-glow) 0%, transparent 70%);
-            filter: blur(100px);
-            z-index: -1;
-            animation: float 35s infinite alternate ease-in-out;
-        }
-        @keyframes float {
-            from { transform: translate(-10%, -10%); }
-            to { transform: translate(15%, 15%); }
+        /* 1. THE STARDUST BACKGROUND (The "Little Stars") */
+        .star-field {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
         }
 
-        /* Amira-Style Scrolling Ticker */
+        /* 2. FLOATING NEBULA BLOBS */
+        .nebula {
+            position: absolute;
+            width: 1000px; height: 1000px;
+            background: radial-gradient(circle, var(--soft-glow) 0%, transparent 70%);
+            filter: blur(120px);
+            z-index: -1;
+            animation: drift 40s infinite alternate ease-in-out;
+        }
+        @keyframes drift {
+            from { transform: translate(-20%, -10%) scale(1); }
+            to { transform: translate(10%, 15%) scale(1.1); }
+        }
+
+        /* 3. AMIRA-STYLE TICKER (Refined & Slow) */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0, 0, 0, 0.2);
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             position: relative;
+            z-index: 10;
         }
         .ticker-wrap::before, .ticker-wrap::after {
-            content: ""; position: absolute; top: 0; width: 200px; height: 100%; z-index: 2;
+            content: ""; position: absolute; top: 0; width: 250px; height: 100%; z-index: 2;
         }
-        .ticker-wrap::before { left: 0; background: linear-gradient(to right, #0a0e21, transparent); }
-        .ticker-wrap::after { right: 0; background: linear-gradient(to left, #0a0e21, transparent); }
+        .ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--deep-midnight), transparent); }
+        .ticker-wrap::after { right: 0; background: linear-gradient(to left, var(--deep-midnight), transparent); }
 
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            animation: scroll 40s linear infinite;
+            animation: scroll 60s linear infinite; /* Very slow for luxury feel */
         }
         .ticker span {
             display: inline-block;
-            margin: 0 50px;
-            font-size: 24px;
-            color: rgba(255, 255, 255, 0.2);
+            margin: 0 60px;
+            font-size: 18px; /* Smaller and more delicate */
+            color: rgba(255, 255, 255, 0.15); /* Faint and subtle */
+            font-weight: 300;
         }
         @keyframes scroll {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
 
-        /* Glassmorphism containers */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            padding: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: 0.8s ease;
-        }
-
+        /* 4. TEXT STYLING (The "Amira" Look) */
         .nav-link {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
             font-style: italic;
-            letter-spacing: 0.2em;
-            text-decoration: none;
+            transition: 0.6s;
+        }
+        .nav-link:hover { color: #fff; text-shadow: 0 0 10px #fff; }
+
+        .main-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-style: italic;
+            font-weight: 400;
+            line-height: 1.1;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
         }
 
-        .glow-text { text-shadow: 0 0 25px rgba(255, 255, 255, 0.2); }
-
-        .tarot-img {
+        /* 5. LUXURY IMAGE MASKING */
+        .image-reveal {
+            position: relative;
             width: 100%;
-            height: 700px;
-            object-fit: cover;
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            filter: brightness(0.8);
+            max-width: 900px;
+            margin: 0 auto;
+            mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
         }
+        .tarot-image {
+            width: 100%;
+            height: 800px;
+            object-fit: cover;
+            filter: brightness(0.7) contrast(1.1) saturate(0.8);
+            transition: 1.5s ease;
+        }
+        .image-reveal:hover .tarot-image { filter: brightness(0.9); transform: scale(1.02); }
+
     </style>
 </head>
 <body>
 
-    <div class="blob" style="top: 0%; right: -10%;"></div>
-    <div class="blob" style="bottom: 10%; left: -10%; animation-delay: -10s;"></div>
+    <div class="star-field"></div>
+    <div class="nebula" style="top: -10%; left: -5%;"></div>
+    <div class="nebula" style="bottom: 0%; right: -10%; animation-delay: -10s;"></div>
 
-    <nav class="py-20 text-center relative z-50">
-        <h1 class="text-4xl tracking-[0.7em] mb-12 glow-text">The Dreamy Reality</h1>
-        <div class="flex justify-center space-x-16">
+    <nav class="py-24 text-center relative z-50">
+        <h1 class="text-3xl tracking-[0.8em] mb-12 font-light opacity-80">The Dreamy Reality</h1>
+        <div class="flex justify-center space-x-20">
             <a href="#offerings" class="nav-link">Offerings</a>
-            <a href="#about" class="nav-link">Philosophy</a>
-            <a href="#contact" class="nav-link">Connect</a>
+            <a href="#philosophy" class="nav-link">Philosophy</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
 
@@ -120,37 +141,34 @@
         </div>
     </div>
 
-    <header class="min-h-screen flex items-center justify-center text-center px-6 relative">
-        <div class="max-w-5xl">
-            <span style="font-style: italic; color: rgba(255,255,255,0.4); letter-spacing: 0.2em; display: block; margin-bottom: 2rem;">Consciousness is the only reality</span>
-            <h2 class="text-7xl md:text-9xl italic leading-tight mb-16 glow-text">Assume the <br> Feeling.</h2>
-            <div class="w-[1px] h-32 bg-gradient-to-b from-white/30 to-transparent mx-auto"></div>
-        </div>
+    <header class="min-h-screen flex flex-col items-center justify-center text-center px-6 py-40 relative z-10">
+        <p class="text-[10px] tracking-[1.2em] uppercase text-white/30 mb-12">Consciousness is the only reality</p>
+        <h2 class="main-title">Assume the <br> Feeling.</h2>
+        <div class="mt-24 w-[1px] h-40 bg-gradient-to-b from-white/20 to-transparent"></div>
     </header>
 
-    <section id="offerings" class="py-48 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row items-center gap-28 mb-80">
-            <div class="md:w-3/5">
-                <div class="glass-card">
-                    <img src="https://images.unsplash.com/photo-1572916138170-01cc3d2e5d71?auto=format&fit=crop&q=80&w=1200" class="tarot-img" alt="Tarot">
-                </div>
+    <section id="offerings" class="py-60 px-6 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col items-center">
+            <div class="image-reveal mb-24">
+                <img src="https://images.unsplash.com/photo-1572916138170-01cc3d2e5d71?auto=format&fit=crop&q=80&w=1500" class="tarot-image" alt="Tarot">
             </div>
-            <div class="md:w-2/5">
-                <span style="font-style: italic; color: rgba(255,255,255,0.4); display: block; margin-bottom: 1rem;">Guidance</span>
-                <h3 class="text-5xl italic mb-10 glow-text">Celestial Tarot</h3>
-                <p class="text-stone-300 font-light mb-12 leading-loose text-xl">A portal into your present vibration. Reveal the hidden assumptions molding your physical world.</p>
-                <a href="#" style="font-style: italic; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px; color: white; text-decoration: none;">Book a Reading</a>
+            <div class="max-w-2xl text-center">
+                <span class="text-[11px] italic tracking-[0.4em] text-white/40 mb-6 block uppercase">Guidance</span>
+                <h3 class="text-5xl italic mb-10 font-light">Celestial Tarot</h3>
+                <p class="text-white/50 font-light leading-relaxed text-xl mb-12">A mirror for the soul. We explore the archetypal frequencies currently shaping your physical world.</p>
+                <a href="#" class="text-[12px] italic tracking-[0.5em] border-b border-white/10 pb-2 hover:border-white transition-all uppercase">Book Journey</a>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-60 text-center relative">
-        <div class="max-w-2xl mx-auto px-6">
-            <h2 class="text-4xl italic mb-12 glow-text">Enter the Dream</h2>
-            <form name="newsletter" method="POST" data-netlify="true">
-                <input type="email" name="email" required placeholder="EMAIL ADDRESS" class="bg-transparent border-b border-white/10 w-full py-5 text-center focus:border-white outline-none italic text-white text-lg">
-                <button type="submit" class="mt-12 text-white/40 italic hover:text-white transition tracking-widest text-sm">Subscribe</button>
+    <footer id="contact" class="py-60 text-center border-t border-white/5 relative z-10">
+        <div class="max-w-xl mx-auto">
+            <h2 class="text-3xl italic mb-16 opacity-70">Connect with the Dream</h2>
+            <form name="newsletter" method="POST" data-netlify="true" class="px-10">
+                <input type="email" name="email" required placeholder="EMAIL ADDRESS" class="bg-transparent border-b border-white/10 w-full py-6 text-center focus:border-white outline-none italic text-white/80 text-lg transition-all mb-12">
+                <button type="submit" class="text-white/30 italic hover:text-white transition tracking-[0.6em] text-[10px] uppercase">Subscribe</button>
             </form>
+            <p class="mt-40 text-[8px] tracking-[0.8em] text-white/10 italic uppercase">The Dreamy Reality &copy; 2026</p>
         </div>
     </footer>
 
