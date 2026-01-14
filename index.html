@@ -5,157 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Dreamy Reality | Tarot & Manifestation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Palette inspired by your image: Deep space blues and soft glows */
-            --ethereal-blue: #1a2a6c;
-            --nebula-purple: #b21f1f; /* subtle hint */
-            --dream-glow: #fdbb2d; /* soft starlight */
-            --off-white: #FAF9F6;
+            --bg-dream: #FAF9F6; 
+            --celestial-blue: #1a2a6c;
+            --text-main: #1a1a1a;
         }
-        <div class="symbol-ticker-container">
-    <div class="symbol-ticker">
-        <span>☉</span> <span>☽</span> <span>☿</span> <span>♀</span> <span>♂</span> <span>♃</span> <span>♄</span> <span>♅</span> <span>♆</span> <span>♇</span> <span>✧</span> <span>❂</span>
-        <span>☉</span> <span>☽</span> <span>☿</span> <span>♀</span> <span>♂</span> <span>♃</span> <span>♄</span> <span>♅</span> <span>♆</span> <span>♇</span> <span>✧</span> <span>❂</span>
-    </div>
-</div>
 
         body { 
-            font-family: 'Tenor Sans', sans-serif; 
-            /* Created a dreamy gradient background like the image */
-            background: radial-gradient(circle at top right, #2a3a7c, #0a0e21 40%),
-                        linear-gradient(180deg, #0a0e21 0%, #1a2a6c 50%, #2c3e50 100%);
-            color: var(--off-white);
-            letter-spacing: 0.05em;
+            font-family: 'Playfair Display', serif; /* Entire site is now Serif */
+            background-color: var(--bg-dream); 
+            color: var(--text-main);
+            letter-spacing: 0.02em;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        h1, h2, h3, .serif { font-weight: 400; }
 
-        /* Floating Stars Effect */
-        .stars-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(2px 2px at 20px 30px, #eee, rgba(0,0,0,0)),
-                              radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
-                              radial-gradient(2px 2px at 50px 160px, #ddd, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: 0.3;
+        /* Floating Glow Blobs */
+        .blob {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(26, 42, 108, 0.07) 0%, transparent 70%);
+            filter: blur(80px);
             z-index: -1;
+            animation: float 30s infinite alternate ease-in-out;
         }
 
-        /* Glassmorphism Cards */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: 0.5s ease;
-        }
-        .glass-card:hover {
-            background: rgba(255, 255, 255, 0.07);
-            border-color: rgba(255, 255, 255, 0.3);
+        @keyframes float {
+            from { transform: translate(-5%, -5%); }
+            to { transform: translate(15%, 10%); }
         }
 
-        /* Ethereal Glow for Text */
-        .glow-text {
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        }
-
-        .nav-link {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.4em;
-            color: rgba(255,255,255,0.6);
-            transition: 0.4s;
-        }
-        .nav-link:hover { color: #fff; text-shadow: 0 0 8px #fff; }
-
-        .hero-vignette {
-            height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-center: center;
-        }
-
-        .tarot-img {
+        /* Symbol Ticker */
+        .ticker-wrap {
             width: 100%;
-            height: 600px;
-            object-fit: cover;
-            border-radius: 2px;
-            mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+            overflow: hidden;
+            padding: 25px 0;
+            border-top: 1px solid rgba(0,0,0,0.03);
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+            background: white;
+            position: relative;
         }
-    </style>
-</head>
-<body>
+        .ticker-wrap::before, .ticker-wrap::after {
+            content: ""; position: absolute; top: 0; width: 200px; height: 100%; z-index: 2;
+        }
+        .ticker-wrap::before { left: 0; background: linear-gradient(to right, white, transparent); }
+        .ticker-wrap::after { right: 0; background: linear-gradient(to left, white, transparent); }
 
-    <div class="stars-overlay"></div>
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 45s linear infinite;
+        }
+        .ticker span {
+            display: inline-block;
+            margin: 0 50px;
+            font-size: 22px;
+            color: #d1d1d1;
+        }
+        @keyframes scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
 
-    <nav class="py-12 text-center relative z-10">
-        <h1 class="text-2xl uppercase tracking-[0.8em] mb-8 glow-text">The Dreamy Reality</h1>
-        <div class="flex justify-center space-x-12">
-            <a href="#services" class="nav-link">services</a>
-            <a href="#about" class="nav-link">about</a>
-            <a href="#contact" class="nav-link">contact</a>
-        </div>
-    </nav>
+        /* Nav & Subheading Styling */
+        .nav-link {
+            font-size: 14px;
+            color: #999;
+            transition: 0.5s;
+            font-style: italic;
+        }
+        .nav-link:hover { color: var(--celestial-blue); }
 
-    <header class="hero-vignette px-6 relative">
-        <div class="max-w-4xl text-center">
-            <p class="text-[10px] uppercase tracking-[1em] text-blue-300 mb-8 opacity-80">desire reveals destiny</p>
-            <h2 class="text-5xl md:text-8xl serif italic mb-10 glow-text leading-tight">identity <br> creates outcome.</h2>
-            <div class="w-16 h-[1px] bg-blue-400 mx-auto opacity-40"></div>
-        </div>
-    </header>
+        .sub-label {
+            font-size: 13px;
+            font-style: italic;
+            letter-spacing: 0.15em;
+            color: #888;
+            display: block;
+            margin-bottom: 1.5rem;
+        }
 
-    <section id="services" class="py-32 px-6 max-w-7xl mx-auto relative z-10">
-        
-        <div class="flex flex-col md:flex-row items-center gap-20 mb-48">
-            <div class="md:w-1/2">
-                <div class="glass-card p-4">
-                    <img src="https://images.unsplash.com/photo-1572916138170-01cc3d2e5d71?auto=format&fit=crop&q=80&w=800" class="tarot-img opacity-80" alt="Tarot Reading">
-                </div>
-            </div>
-            <div class="md:w-1/2">
-                <span class="text-blue-300 uppercase tracking-[0.4em] text-[10px] mb-4 block">Divination</span>
-                <h3 class="text-4xl md:text-5xl serif italic mb-8 glow-text">Ethereal Readings</h3>
-                <p class="text-stone-300 font-light mb-10 leading-relaxed">Step into the quantum field. We use the tarot to visualize the threads of your potential and weave them into your physical world.</p>
-                <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-blue-400 pb-2 hover:text-blue-200 transition">Book the Journey</a>
-            </div>
-        </div>
-
-        <div class="flex flex-col md:flex-row-reverse items-center gap-20 mb-20">
-            <div class="md:w-1/2">
-                <div class="glass-card p-4">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800" class="tarot-img opacity-80" alt="Mentorship">
-                </div>
-            </div>
-            <div class="md:w-1/2 text-right">
-                <span class="text-blue-300 uppercase tracking-[0.4em] text-[10px] mb-4 block">Identity Shift</span>
-                <h3 class="text-4xl md:text-5xl serif italic mb-8 glow-text">The Assumption <br>Container</h3>
-                <p class="text-stone-300 font-light mb-10 leading-relaxed">A sanctuary for those ready to die to the old self. Master the Law of Assumption and anchor your consciousness into your dream reality.</p>
-                <a href="#" class="text-[10px] uppercase tracking-[0.3em] border-b border-blue-400 pb-2 hover:text-blue-200 transition">Begin the Shift</a>
-            </div>
-        </div>
-
-    </section>
-
-    <footer id="contact" class="py-40 text-center relative z-10">
-        <div class="max-w-xl mx-auto px-6 glass-card py-20 rounded-sm">
-            <h2 class="text-3xl serif italic mb-8 glow-text">Stay in the Light</h2>
-            <form name="newsletter" method="POST" data-netlify="true" class="mb-12">
-                <input type="email" name="email" placeholder="YOUR EMAIL ADDRESS" class="bg-transparent border-b border-blue-900/50 w-full py-4 text-center focus:border-blue-400 outline-none transition text-[11px] tracking-widest uppercase text-white mb-8">
-                <button type="submit" class="text-blue-200 uppercase tracking-[0.5em] text-[10px] font-bold">Subscribe</button>
-            </form>
-            <div class="flex justify-center space-x-8 text-[10px] uppercase tracking-[0.4em] text-blue-400/50">
-                <a href="#" class="hover:text-blue-200 transition">Instagram</a>
-                <a href="#" class="hover:text-blue-200 transition">TikTok</a>
-            </div>
-        </div>
-        <p class="mt-24 text-[8px] tracking-[0.6em] text-blue-900 uppercase italic opacity-40">The Dreamy Reality &copy; 2026</p>
-    </footer>
-
-</body>
-</html>
+        .hero-img {
+            height: 85vh;
+            background: linear-gradient(to bottom, rgba(250,249,246,0) 60%, rgba(250,249,246,1) 100%), 
+                        url('
