@@ -8,148 +8,131 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Restoring the Dreamy Blue from your image */
             --deep-midnight: #05070a;
-            --nebula-blue: #0d1b3e;
-            --star-glow: rgba(255, 255, 255, 0.4);
         }
 
         body { 
             font-family: 'Playfair Display', serif; 
             background-color: var(--deep-midnight);
-            /* Creating the nebula glow background from your dreamy image */
-            background: radial-gradient(circle at 50% 30%, #1a2a6c 0%, var(--deep-midnight) 80%);
+            /* Deep nebula blue gradient from your image */
+            background: radial-gradient(circle at 50% 30%, #1a2a6c 0%, var(--deep-midnight) 85%);
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* 1. THE LITTLE STARS (Static Starfield) */
+        /* THE STARFIELD (The little stars you miss) */
         .stars-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                radial-gradient(1px 1px at 20px 30px, white, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 40px 70px, white, rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 50px 160px, white, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 90px 40px, white, rgba(0,0,0,0));
+                radial-gradient(1px 1px at 25px 35px, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 50px 80px, white, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 100px 150px, white, rgba(0,0,0,0));
             background-repeat: repeat;
-            background-size: 300px 300px;
-            opacity: 0.15;
+            background-size: 250px 250px;
+            opacity: 0.2;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* 2. THE PLANET ALIGNMENT (From Amira Screenshot) */
+        /* NAVIGATION: Matching the 'Amira' Logo Font Style */
+        .logo-font {
+            font-family: 'Playfair Display', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.4em; /* Wide spacing like the screenshot */
+            font-weight: 400;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .nav-link {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        /* THE PLANET ALIGNMENT (The part you like) */
         .planet-row {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1.2rem;
-            margin: 5rem 0;
+            gap: 1.5rem;
+            margin: 6rem 0;
             position: relative;
             z-index: 10;
         }
         .planet {
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background-size: cover;
-            filter: brightness(0.8) drop-shadow(0 0 10px rgba(255,255,255,0.1));
-            transition: 1s ease;
+            filter: brightness(0.8) drop-shadow(0 0 15px rgba(255,255,255,0.1));
         }
-        .planet:hover { filter: brightness(1); transform: scale(1.1); }
         
-        /* The specific cross-stars from the Amira screenshot */
+        /* Twinkling Cross Stars */
         .cross-star {
             position: absolute;
             color: white;
-            font-size: 12px;
-            opacity: 0.5;
+            font-size: 14px;
+            opacity: 0.6;
             text-shadow: 0 0 10px white;
             animation: twinkle 4s infinite alternate;
         }
-        @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.8; } }
+        @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.9; } }
 
-        /* 3. AMIRA EDITORIAL TEXT */
         .hero-text {
-            font-size: clamp(2.2rem, 5vw, 4.2rem);
-            line-height: 1.15;
+            font-size: clamp(2.2rem, 5.5vw, 4.5rem);
+            line-height: 1.1;
             font-weight: 400;
-            letter-spacing: -0.01em;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
         }
 
-        /* 4. ZODIAC TICKER (Slow & Faded) */
-        .ticker-wrap {
-            width: 100%;
-            overflow: hidden;
-            padding: 35px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            background: rgba(0, 0, 0, 0.1);
-            position: relative;
+        .cta-button {
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-size: 10px;
+            letter-spacing: 0.4em;
+            transition: all 0.5s ease;
         }
-        .ticker {
-            display: inline-block;
-            white-space: nowrap;
-            animation: scroll 60s linear infinite;
-        }
-        .ticker span {
-            display: inline-block;
-            margin: 0 50px;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.15);
-        }
-        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-        .nav-link {
-            font-size: 11px;
-            letter-spacing: 0.5em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.4);
-            font-style: italic;
-        }
+        .cta-button:hover { background: white; color: black; }
     </style>
 </head>
 <body>
 
     <div class="stars-overlay"></div>
 
-    <nav class="flex justify-between items-center px-16 py-12 relative z-50">
-        <h1 class="text-2xl tracking-[0.6em] font-light opacity-80 italic">The Dreamy Reality</h1>
-        <div class="flex space-x-14 items-center">
+    <nav class="flex justify-between items-center px-16 py-14 relative z-50">
+        <div class="logo-font">The Dreamy Reality</div>
+        <div class="flex space-x-16 items-center">
             <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
-            <button class="border border-white/10 px-10 py-2.5 rounded-full text-[10px] tracking-[0.4em] hover:bg-white hover:text-black transition-all">BOOK NOW</button>
+            <a href="#contact" class="nav-link">Connect</a>
+            <button class="cta-button">BOOK NOW</button>
         </div>
     </nav>
-
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <span>♌︎</span> <span>♍︎</span> <span>♎︎</span> <span>♏︎</span> <span>♐︎</span> <span>♑︎</span> <span>♒︎</span> <span>♓︎</span> <span>♈︎</span> <span>♉︎</span> <span>♊︎</span> <span>♋︎</span>
-            <span>♌︎</span> <span>♍︎</span> <span>♎︎</span> <span>♏︎</span> <span>♐︎</span> <span>♑︎</span> <span>♒︎</span> <span>♓︎</span> <span>♈︎</span> <span>♉︎</span> <span>♊︎</span> <span>♋︎</span>
-        </div>
-    </div>
 
     <header class="min-h-screen flex flex-col items-center justify-center text-center px-8 relative z-10">
         
         <div class="planet-row">
-            <div class="cross-star" style="top: -30px; left: 15%;">✦</div>
-            <div class="cross-star" style="bottom: -20px; right: 20%;">✦</div>
+            <div class="cross-star" style="top: -40px; left: 10%;">✦</div>
+            <div class="cross-star" style="bottom: -30px; right: 15%;">✦</div>
+            <div class="cross-star" style="top: 10px; right: -20px; font-size: 10px;">✦</div>
             
             <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?q=80&w=100&auto=format&fit=crop');"></div>
             <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=100&auto=format&fit=crop');"></div>
-            <div class="planet" style="width: 65px; height: 65px; border: 1px solid rgba(255,255,255,0.2); background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?q=80&w=100&auto=format&fit=crop');"></div>
+            <div class="planet" style="width: 70px; height: 70px; border: 1px solid rgba(255,255,255,0.2); background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?q=80&w=100&auto=format&fit=crop');"></div>
             <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614732484003-ef9881555dc3?q=80&w=100&auto=format&fit=crop');"></div>
             <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614726339050-d7c30f40277f?q=80&w=100&auto=format&fit=crop');"></div>
         </div>
 
         <h2 class="hero-text italic">
-            identity creates outcome. desire reveals destiny.
+            identity creates outcome. desire reveals destiny. 
         </h2>
 
         <div class="mt-32 w-[1px] h-48 bg-gradient-to-b from-white/20 to-transparent"></div>
