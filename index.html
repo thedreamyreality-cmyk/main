@@ -8,15 +8,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dream: #FAF9F6; 
-            --celestial-blue: #1a2a6c;
-            --text-main: #1a1a1a;
+            /* Dreamy Blue Palette from your image */
+            --deep-space: #0a0e21;
+            --nebula-glow: rgba(178, 190, 255, 0.15);
+            --starlight: #FAF9F6;
         }
 
         body { 
-            font-family: 'Playfair Display', serif; /* Entire site is now Serif */
-            background-color: var(--bg-dream); 
-            color: var(--text-main);
+            font-family: 'Playfair Display', serif; 
+            background-color: var(--deep-space);
+            /* Gradient to mimic the nebula effect in your image */
+            background: radial-gradient(circle at top right, #1a2a6c, #0a0e21 50%),
+                        linear-gradient(180deg, #0a0e21 0%, #16213e 100%);
+            color: var(--starlight);
             letter-spacing: 0.02em;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -24,73 +28,75 @@
 
         h1, h2, h3, .serif { font-weight: 400; }
 
-        /* Floating Glow Blobs */
+        /* Floating Glow Blobs (Drifting light from your image) */
         .blob {
             position: absolute;
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(26, 42, 108, 0.07) 0%, transparent 70%);
-            filter: blur(80px);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--nebula-glow) 0%, transparent 70%);
+            filter: blur(100px);
             z-index: -1;
-            animation: float 30s infinite alternate ease-in-out;
+            animation: float 35s infinite alternate ease-in-out;
         }
 
         @keyframes float {
-            from { transform: translate(-5%, -5%); }
-            to { transform: translate(15%, 10%); }
+            from { transform: translate(-10%, -10%); }
+            to { transform: translate(15%, 15%); }
         }
 
-        /* Symbol Ticker */
+        /* Moving Symbol Ticker (Amira Style) */
         .ticker-wrap {
             width: 100%;
             overflow: hidden;
-            padding: 25px 0;
-            border-top: 1px solid rgba(0,0,0,0.03);
-            border-bottom: 1px solid rgba(0,0,0,0.03);
-            background: white;
+            padding: 30px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.2);
             position: relative;
         }
         .ticker-wrap::before, .ticker-wrap::after {
             content: ""; position: absolute; top: 0; width: 200px; height: 100%; z-index: 2;
         }
-        .ticker-wrap::before { left: 0; background: linear-gradient(to right, white, transparent); }
-        .ticker-wrap::after { right: 0; background: linear-gradient(to left, white, transparent); }
+        .ticker-wrap::before { left: 0; background: linear-gradient(to right, #0a0e21, transparent); }
+        .ticker-wrap::after { right: 0; background: linear-gradient(to left, #0a0e21, transparent); }
 
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            animation: scroll 45s linear infinite;
+            animation: scroll 40s linear infinite;
         }
         .ticker span {
             display: inline-block;
             margin: 0 50px;
-            font-size: 22px;
-            color: #d1d1d1;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.2);
         }
         @keyframes scroll {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
         }
 
-        /* Nav & Subheading Styling */
+        /* Glassmorphism Refined */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-10px); }
+
         .nav-link {
             font-size: 14px;
-            color: #999;
+            color: rgba(255, 255, 255, 0.5);
             transition: 0.5s;
             font-style: italic;
+            letter-spacing: 0.2em;
         }
-        .nav-link:hover { color: var(--celestial-blue); }
+        .nav-link:hover { color: white; text-shadow: 0 0 10px white; }
 
         .sub-label {
-            font-size: 13px;
+            font-size: 14px;
             font-style: italic;
-            letter-spacing: 0.15em;
-            color: #888;
-            display: block;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-img {
-            height: 85vh;
-            background: linear-gradient(to bottom, rgba(250,249,246,0) 60%, rgba(250,249,246,1) 100%), 
-                        url('
+            letter-spacing: 0.2em;
+            color: rgba(
