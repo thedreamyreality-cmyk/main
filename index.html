@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the dreamy reality | tarot & manifestation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tenor+Sans&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #080808; 
+            --gold: #c5a059;
+        }
+        body { 
+            font-family: 'Tenor Sans', sans-serif; 
+            background-color: var(--midnight); 
+            color: #ffffff;
+            letter-spacing: 0.05em;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+        
+        /* Atmospheric Hero */
+        .hero-vignette {
+            height: 100vh;
+            background: linear-gradient(to bottom, rgba(8,8,8,0.1) 0%, rgba(8,8,8,1) 100%), 
+                        url('https://images.unsplash.com/photo-1572916138170-01cc3d2e5d71?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-link {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: #777;
+            transition: 0.4s ease;
+        }
+        .nav-link:hover { color: var(--gold); font-style: italic; }
+
+        .tarot-img { 
+            width: 100%; 
+            height: 700px; 
+            object-fit: cover; 
+            filter: sepia(20%) contrast(1.1) brightness(0.7);
+            transition: 0.8s filter;
+        }
+        .tarot-img:hover { filter: sepia(0%) contrast(1.1) brightness(1); }
+
+        .divider { width: 1px; height: 100px; background: linear-gradient(to bottom, var(--gold), transparent); margin: 40px auto; }
+        
+        input::placeholder { color: #444; letter-spacing: 0.2em; }
+    </style>
+</head>
+<body>
+
+    <nav class="py-16 text-center border-b border-stone-900">
+        <h1 class="text-3xl uppercase tracking-[0.7em] mb-10 serif">The Dreamy Reality</h1>
+        <div class="flex justify-center space-x-12">
+            <a href="#offerings" class="nav-link">Offerings</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Connect</a>
+        </div>
+    </nav>
+
+    <header class="hero-vignette flex items-center justify-center text-center px-6">
+        <div class="max-w-5xl">
+            <p class="text-[10px] uppercase tracking-[0.8em] text-stone-500 mb-10">Consciousness is the only reality</p>
+            <h2 class="text-6xl md:text-9xl serif italic mb-12">The Major Arcana <br> of Manifestation.</h2>
+            <div class="divider"></div>
+        </div>
+    </header>
+
+    <section id="offerings" class="py-40 px-6 max-w-7xl mx-auto">
+        
+        <div class="flex flex-col md:flex-row items-center gap-24 mb-60">
+            <div class="md:w-3/5">
+                <img src="https://images.unsplash.com/photo-1601058268499-e52658b8bb88?auto=format&fit=crop&q=80&w=1000" class="tarot-img" alt="Tarot Spread">
+            </div>
+            <div class="md:w-2/5">
+                <span class="text-gold uppercase tracking-[0.4em] text-[10px] mb-4 block">The Fool's Leap</span>
+                <h3 class="text-5xl serif italic mb-8 leading-tight">Intuitive <br>Guidance.</h3>
+                <p class="text-stone-400 font-light mb-10 leading-loose">A deep dive into your current subconscious state. Using the tarot as a mirror to bridge the gap between your present self and your desired reality.</p>
+                <a href="#" class="text-[10px] uppercase tracking-[0.4em] text-gold border-b border-stone-800 pb-2 hover:border-white transition">Book Reading</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row-reverse items-center gap-24 mb-40">
+            <div class="md:w-3/5">
+                <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=1000" class="tarot-img" alt="The High Priestess">
+            </div>
+            <div class="md:w-2/5 text-right">
+                <span class="text-gold uppercase tracking-[0.4em] text-[10px] mb-4 block">The High Priestess</span>
+                <h3 class="text-5xl serif italic mb-8 leading-tight">Manifestation <br>Mentorship.</h3>
+                <p class="text-stone-400 font-light mb-10 leading-loose">Master the Law of Assumption. A private container designed to help you collapse time and harden your assumptions into physical facts.</p>
+                <a href="#" class="text-[10px] uppercase tracking-[0.4em] text-gold border-b border-stone-800 pb-2 hover:border-white transition">Apply Now</a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer id="contact" class="py-40 bg-black text-center border-t border-stone-900">
+        <div class="max-w-xl mx-auto px-6">
+            <h2 class="text-3xl serif italic mb-12">Subscribe to the Magic</h2>
+            <form name="newsletter" method="POST" data-netlify="true" class="mb-20">
+                <input type="email" name="email" required placeholder="YOUR EMAIL ADDRESS" class="bg-transparent border-b border-stone-800 w-full py-5 text-center focus:border-gold outline-none transition text-[11px] tracking-widest uppercase text-white">
+                <button type="submit" class="mt-10 text-gold uppercase tracking-[0.5em] text-[10px] font-bold hover:text-white transition">Submit</button>
+            </form>
+            
+            <div class="flex justify-center space-x-12 text-[10px] uppercase tracking-[0.4em] text-stone-600">
+                <a href="#" class="hover:text-white transition">Instagram</a>
+                <a href="#" class="hover:text-white transition">Tiktok</a>
+            </div>
+            <p class="mt-24 text-[8px] tracking-[0.6em] text-stone-800 uppercase italic font-sans">The Dreamy Reality &copy; 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
