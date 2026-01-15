@@ -9,137 +9,174 @@
     <style>
         :root {
             --deep-midnight: #05070a;
+            --nebula-blue: #1a2a6c;
         }
 
         body { 
             font-family: 'Playfair Display', serif; 
             background-color: var(--deep-midnight);
-            /* Deep nebula blue gradient from your image */
-            background: radial-gradient(circle at 50% 30%, #1a2a6c 0%, var(--deep-midnight) 85%);
+            /* This mimics the glowing blue from your favorite image */
+            background: radial-gradient(circle at 50% 35%, var(--nebula-blue) 0%, var(--deep-midnight) 85%);
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        /* THE STARFIELD (The little stars you miss) */
+        /* THE STARFIELD (The little stars behind everything) */
         .stars-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                radial-gradient(1px 1px at 25px 35px, white, rgba(0,0,0,0)),
-                radial-gradient(1px 1px at 50px 80px, white, rgba(0,0,0,0)),
-                radial-gradient(1.5px 1.5px at 100px 150px, white, rgba(0,0,0,0));
+                radial-gradient(1px 1px at 20px 30px, white, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, white, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 100px 160px, white, rgba(0,0,0,0));
             background-repeat: repeat;
-            background-size: 250px 250px;
-            opacity: 0.2;
+            background-size: 300px 300px;
+            opacity: 0.18;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* NAVIGATION: Matching the 'Amira' Logo Font Style */
+        /* MOBILE OPTIMIZED NAVIGATION */
+        nav {
+            display: flex;
+            flex-direction: column; /* Stack logo on top of links for mobile */
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+            z-index: 50;
+        }
+
+        /* HEADER FONT: Matching the 'Amira' screenshot exactly */
         .logo-font {
             font-family: 'Playfair Display', serif;
             text-transform: uppercase;
-            letter-spacing: 0.4em; /* Wide spacing like the screenshot */
+            letter-spacing: 0.5em; /* Extreme spacing for luxury feel */
             font-weight: 400;
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: clamp(0.9rem, 4vw, 1.2rem); /* Fluid size for mobile */
+            opacity: 0.95;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.2rem;
+            align-items: center;
         }
 
         .nav-link {
-            font-size: 11px;
-            letter-spacing: 0.3em;
+            font-size: 10px;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.5);
             font-style: italic;
         }
 
-        /* THE PLANET ALIGNMENT (The part you like) */
+        /* DESKTOP NAV TWEAKS */
+        @media (min-width: 768px) {
+            nav {
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 3.5rem 4rem;
+            }
+        }
+
+        /* THE PLANET ALIGNMENT: Responsive Scaling */
         .planet-row {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1.5rem;
-            margin: 6rem 0;
+            gap: clamp(0.8rem, 3vw, 1.8rem); /* Gap shrinks on small screens */
+            margin: 4rem 0;
             position: relative;
             z-index: 10;
         }
+        
         .planet {
-            width: 50px;
-            height: 50px;
+            width: clamp(35px, 8vw, 55px); /* Planets shrink on mobile */
+            height: clamp(35px, 8vw, 55px);
             border-radius: 50%;
             background-size: cover;
-            filter: brightness(0.8) drop-shadow(0 0 15px rgba(255,255,255,0.1));
+            filter: brightness(0.8) drop-shadow(0 0 12px rgba(255,255,255,0.1));
         }
-        
+
+        .center-planet {
+            width: clamp(50px, 12vw, 75px); /* Larger focal planet */
+            height: clamp(50px, 12vw, 75px);
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
         /* Twinkling Cross Stars */
         .cross-star {
             position: absolute;
             color: white;
             font-size: 14px;
             opacity: 0.6;
-            text-shadow: 0 0 10px white;
             animation: twinkle 4s infinite alternate;
         }
-        @keyframes twinkle { from { opacity: 0.2; } to { opacity: 0.9; } }
+        @keyframes twinkle { from { opacity: 0.2; } to { opacity: 1; } }
 
+        /* HERO TEXT: Fluid and Breathable */
         .hero-text {
-            font-size: clamp(2.2rem, 5.5vw, 4.5rem);
-            line-height: 1.1;
+            font-size: clamp(1.8rem, 6vw, 4.2rem);
+            line-height: 1.25;
             font-weight: 400;
-            max-width: 1100px;
+            max-width: 90%;
             margin: 0 auto;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+            padding: 0 1rem;
         }
 
-        .cta-button {
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 12px 35px;
+        .book-button {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px 28px;
             border-radius: 50px;
-            font-size: 10px;
-            letter-spacing: 0.4em;
-            transition: all 0.5s ease;
+            font-size: 9px;
+            letter-spacing: 0.35em;
+            transition: 0.4s;
+            margin-top: 10px;
         }
-        .cta-button:hover { background: white; color: black; }
     </style>
 </head>
 <body>
 
     <div class="stars-overlay"></div>
 
-    <nav class="flex justify-between items-center px-16 py-14 relative z-50">
+    <nav>
         <div class="logo-font">The Dreamy Reality</div>
-        <div class="flex space-x-16 items-center">
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Connect</a>
-            <button class="cta-button">BOOK NOW</button>
+        <div class="nav-links">
+            <a href="#offerings" class="nav-link">Offerings</a>
+            <a href="#connect" class="nav-link">Connect</a>
+            <button class="book-button">BOOK NOW</button>
         </div>
     </nav>
 
-    <header class="min-h-screen flex flex-col items-center justify-center text-center px-8 relative z-10">
+    <header class="min-h-[80vh] flex flex-col items-center justify-center text-center px-4 relative z-10">
         
         <div class="planet-row">
-            <div class="cross-star" style="top: -40px; left: 10%;">✦</div>
-            <div class="cross-star" style="bottom: -30px; right: 15%;">✦</div>
-            <div class="cross-star" style="top: 10px; right: -20px; font-size: 10px;">✦</div>
+            <div class="cross-star" style="top: -30px; left: 15%;">✦</div>
+            <div class="cross-star" style="bottom: -20px; right: 20%;">✦</div>
             
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?q=80&w=100&auto=format&fit=crop');"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?q=80&w=100&auto=format&fit=crop');"></div>
-            <div class="planet" style="width: 70px; height: 70px; border: 1px solid rgba(255,255,255,0.2); background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?q=80&w=100&auto=format&fit=crop');"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614732484003-ef9881555dc3?q=80&w=100&auto=format&fit=crop');"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614726339050-d7c30f40277f?q=80&w=100&auto=format&fit=crop');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?auto=format&fit=crop&q=60&w=200');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?auto=format&fit=crop&q=60&w=200');"></div>
+            
+            <div class="planet center-planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?auto=format&fit=crop&q=60&w=200');"></div>
+            
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614732484003-ef9881555dc3?auto=format&fit=crop&q=60&w=200');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614726339050-d7c30f40277f?auto=format&fit=crop&q=60&w=200');"></div>
         </div>
 
         <h2 class="hero-text italic">
-            identity creates outcome. desire reveals destiny. 
+            One on one guidance, birth chart readings, & cosmic insight for clarity in love, work, and self.
         </h2>
 
-        <div class="mt-32 w-[1px] h-48 bg-gradient-to-b from-white/20 to-transparent"></div>
+        <div class="mt-28 w-[1px] h-32 bg-gradient-to-b from-white/30 to-transparent"></div>
     </header>
 
-    <footer class="py-40 text-center relative z-10 border-t border-white/5">
-        <p class="text-[9px] tracking-[0.8em] text-white/5 italic uppercase">The Dreamy Reality &copy; 2026</p>
+    <footer class="py-32 text-center opacity-10 text-[9px] tracking-[0.8em] uppercase italic">
+        The Dreamy Reality &copy; 2026
     </footer>
 
 </body>
