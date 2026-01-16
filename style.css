@@ -15,6 +15,11 @@ body{
   line-height: 1.75;
 }
 
+/* Force serif everywhere (fixes "Arial/Calibri" look on buttons) */
+button, input, textarea, select {
+  font-family:"Playfair Display", serif;
+}
+
 /* NAV */
 .nav{
   display:flex;
@@ -24,24 +29,28 @@ body{
 }
 
 .logo{
-  font-size: 1.7rem;              /* bigger */
-  letter-spacing: .6px;           /* tighter */
-  font-weight: 600;
+  font-size: 1.7rem;
+  letter-spacing: .6px; /* tighter */
+  font-weight: 400;     /* thinner */
 }
 
 .navlinks a{
   color: var(--text);
-  text-decoration:none;
+  text-decoration:none;  /* removes link look */
   margin-left: 26px;
   font-size: .95rem;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   opacity: .85;
+  font-weight: 400;
 }
-.navlinks a:hover{ opacity: 1; }
+
+.navlinks a:hover{
+  opacity: 1;
+}
 
 /* HERO */
 .hero{
-  padding: 40px 40px 70px;        /* moved UP (less empty space) */
+  padding: 18px 40px 60px; /* moved up */
   display:flex;
   justify-content:center;
 }
@@ -53,29 +62,29 @@ body{
 }
 
 .planets{
-  max-width: 330px;
-  margin: 10px auto 26px;
+  max-width: 380px;     /* bigger */
+  margin: 0 auto 22px;  /* less gap above/below */
   display:block;
   opacity: .98;
 }
 
 .hero-title{
-  font-size: clamp(2.6rem, 4vw, 3.6rem); /* bigger */
+  font-size: clamp(2.8rem, 4.2vw, 3.9rem);
   letter-spacing: 2px;
   font-weight: 600;
   margin-bottom: 18px;
 }
 
 .hero-text{
-  max-width: 720px;               /* paragraph block */
+  max-width: 720px;
   margin: 0 auto;
-  font-size: 1.05rem;             /* bigger */
+  font-size: 1.05rem;   /* bigger */
   color: var(--muted);
 }
 
 /* SECTIONS */
 section{
-  padding: 80px 120px;            /* tighter spacing overall */
+  padding: 80px 120px;  /* tighter overall spacing */
 }
 
 .kicker{
@@ -106,7 +115,7 @@ h2{
 .about-img{
   width:100%;
   border-radius: 4px;
-  transform: translateX(-10px);   /* move image slightly left */
+  transform: translateX(-10px); /* slight left */
 }
 
 .about-text{
@@ -114,14 +123,34 @@ h2{
 }
 
 .about-text p{
-  font-size: 1.05rem;             /* bigger */
+  font-size: 1.05rem;
   color: var(--muted);
   margin-bottom: 22px;
 }
 
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top: 10px;
+  padding: 12px 22px;
+  border: 1px solid rgba(236,236,244,.35);
+  color: var(--text);
+  text-decoration:none;
+  letter-spacing: 2px;
+  font-size: .85rem;
+  opacity: .9;
+  transition: opacity .2s ease, transform .2s ease, background .2s ease;
+}
+
+.btn:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+  background: rgba(236,236,244,.06);
+}
+
 /* SERVICES */
 .services{
-  padding-top: 70px;              /* tighter */
+  padding-top: 70px;
 }
 
 .accordion{
@@ -141,9 +170,9 @@ h2{
   border-bottom: 1px solid var(--line);
   cursor:pointer;
 
-  font-size: 1.25rem;             /* correct size */
-  font-weight: 600;
-  letter-spacing: .3px;
+  font-size: 1.25rem;
+  font-weight: 500; /* less bold */
+  letter-spacing: .2px;
 }
 
 .accordion-btn .plus{
@@ -166,9 +195,43 @@ h2{
 
 .accordion-panel p{
   padding: 18px 0 24px;
-  font-size: 1.03rem;             /* bigger paragraph style */
+  font-size: 1.03rem;
   color: var(--muted);
   max-width: 720px;
+}
+
+/* FOOTER */
+.footer{
+  padding: 40px 70px;
+  border-top: 1px solid rgba(236,236,244,.12);
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 24px;
+}
+
+.footer-title{
+  letter-spacing: 1px;
+  opacity: .8;
+  font-size: .95rem;
+  font-weight: 400;
+}
+
+.socials a{
+  color: var(--text);
+  text-decoration:none;
+  margin-left: 18px;
+  font-size: .9rem;
+  letter-spacing: 1px;
+  opacity: .7;
+  font-weight: 400;
+}
+
+.socials a:hover{
+  opacity: 1;
 }
 
 /* SCROLL REVEAL */
@@ -177,6 +240,7 @@ h2{
   transform: translateY(40px);
   transition: opacity .9s ease, transform .9s ease;
 }
+
 .reveal.active{
   opacity:1;
   transform: translateY(0);
@@ -188,5 +252,8 @@ h2{
   .nav{ padding: 28px 40px; }
   .about-grid{ grid-template-columns: 1fr; }
   .about-img{ transform: none; }
-  .hero{ padding: 30px 24px 60px; }
+  .hero{ padding: 18px 24px 50px; }
+  .footer{ padding: 34px 40px; }
+  .footer-inner{ flex-direction: column; align-items:flex-start; }
+  .socials a{ margin-left: 0; margin-right: 16px; }
 }
