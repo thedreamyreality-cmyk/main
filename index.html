@@ -1,3 +1,8 @@
+To give your site that high-end, ethereal feel, I have added a subtle "Luminous Pulse" animation to the moon and a "Twinkle" effect to the stars. This keeps your exact deep blue nebula colors but adds a layer of depth that makes the site feel "alive".
+
+The Final "Shimmering Moon" Code (index.html)
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +20,13 @@
         body { 
             font-family: 'Playfair Display', serif; 
             background-color: var(--deep-midnight);
-            /* Your deep blue nebula colors */
             background: radial-gradient(circle at 50% 35%, var(--nebula-blue) 0%, var(--deep-midnight) 85%);
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
         }
 
-        /* THE STARFIELD Overlay */
+        /* 1. ANIMATED STARFIELD */
         .stars-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -34,9 +38,14 @@
             opacity: 0.18;
             z-index: 0;
             pointer-events: none;
+            animation: starsTwinkle 8s infinite alternate;
         }
 
-        /* NAVIGATION: Singularity Style but your spacing */
+        @keyframes starsTwinkle {
+            from { opacity: 0.12; }
+            to { opacity: 0.25; }
+        }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -54,7 +63,6 @@
             color: white;
         }
 
-        /* THE FLUID GRID: This mimics the Squarespace "Singularity" Layout */
         .fluid-layout {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
@@ -66,7 +74,6 @@
             z-index: 10;
         }
 
-        /* BOLD HERO TEXT (Singularity Style) */
         .hero-title {
             grid-column: 1 / span 12;
             font-size: clamp(3.5rem, 10vw, 7.5rem);
@@ -77,20 +84,26 @@
             z-index: 20;
         }
 
-        /* OVERLAPPING IMAGE: Fading into the deep blue */
+        /* 2. BLENDED & PULSING MOON */
         .hero-image-box {
             grid-column: 1 / span 12;
-            height: 450px;
-            background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1532693322450-2cb5c511067d?auto=format&fit=crop&q=80&w=2000');
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            opacity: 0.6;
-            filter: saturate(0.5);
+            mask-image: radial-gradient(circle, black 30%, transparent 70%);
+            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+            opacity: 0.7;
+            filter: brightness(1.1) contrast(1.1);
+            animation: moonGlow 6s ease-in-out infinite alternate;
         }
 
-        /* SUBTEXT: Offset like the template */
+        @keyframes moonGlow {
+            from { filter: brightness(1) contrast(1); transform: scale(1); }
+            to { filter: brightness(1.3) contrast(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.1)); transform: scale(1.02); }
+        }
+
         .hero-subtext {
             grid-column: 1 / span 11;
             font-size: 1.25rem;
@@ -102,11 +115,10 @@
 
         @media (min-width: 1024px) {
             .hero-title { grid-column: 1 / span 9; }
-            .hero-image-box { grid-column: 5 / span 8; height: 650px; margin-top: -150px; }
+            .hero-image-box { grid-column: 6 / span 7; height: 700px; margin-top: -200px; }
             .hero-subtext { grid-column: 1 / span 4; margin-top: -80px; }
         }
 
-        /* PLANET ALIGNMENT: Integrated into the grid */
         .planet-row {
             display: flex;
             gap: 1rem;
@@ -130,6 +142,18 @@
             text-decoration: none;
             margin-left: 2rem;
         }
+
+        .book-btn {
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 9px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-left: 2rem;
+            transition: 0.4s;
+        }
+        .book-btn:hover { background: white; color: black; }
     </style>
 </head>
 <body>
@@ -144,7 +168,7 @@
         </div>
     </nav>
 
-    <main class="fluid-layout pb-40">
+    <main class="fluid-layout pb-20">
         
         <div class="hero-title">
             identity creates <br> outcome.
