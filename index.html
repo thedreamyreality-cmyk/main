@@ -93,4 +93,63 @@
             object-fit: cover;
             /* Fades out the edges so it doesn't look like a square box */
             mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 8
+            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+            opacity: 0.4;
+        }
+
+        /* ABOUT ME SECTION (SCROLL DOWN) */
+        .who-am-i-section {
+            margin-top: 10vh;
+            padding: 0 6%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .label { font-size: 10px; letter-spacing: 0.5em; opacity: 0.4; text-transform: uppercase; }
+        .intro-heading { font-size: 3.5rem; font-style: italic; line-height: 1.1; max-width: 800px; }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">THE DREAMY REALITY</div>
+        <div class="nav-links">
+            <a href="services.html">services</a>
+            <a href="about.html">about me</a>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1 class="hero-title">identity <br> creates <br> outcome.</h1>
+        
+        <div class="planet-line">
+            <div class="planet"></div>
+            <div class="planet filled"></div>
+            <div class="planet filled"></div>
+            <div class="planet"></div>
+            <div class="planet filled"></div>
+            <div class="planet"></div>
+            <div class="planet filled"></div>
+        </div>
+
+        <p class="hero-subtext">
+            one on one coaching, tarot readings and spiritual guidance to guide you to your deepest desires and dreams.
+        </p>
+
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1464802686167-b939a67a06d1?w=1200" alt="Cosmic Image">
+        </div>
+    </div>
+
+    <section class="who-am-i-section">
+        <span class="label">who am i</span>
+        <h2 class="intro-heading">Welcome to your <br> Dreamy Reality.</h2>
+        <p class="max-w-xl text-white/60 text-lg">
+            I help you bridge the gap between your current reality and the life of your dreams. Through subconscious work and astrological insights, we create lasting transformation.
+        </p>
+    </section>
+
+</body>
+</html>
