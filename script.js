@@ -19,19 +19,17 @@ window.addEventListener("load", revealOnScroll);
 const buttons = document.querySelectorAll(".accordion-btn");
 
 buttons.forEach(btn => {
-  // accessibility
   btn.setAttribute("aria-expanded", "false");
 
   btn.addEventListener("click", () => {
     const panel = btn.nextElementSibling;
     const isOpen = btn.getAttribute("aria-expanded") === "true";
 
-    // close others (optional, but feels cleaner)
+    // close others for cleaner feel
     buttons.forEach(other => {
       if (other !== btn) {
         other.setAttribute("aria-expanded", "false");
-        const otherPanel = other.nextElementSibling;
-        otherPanel.style.maxHeight = null;
+        other.nextElementSibling.style.maxHeight = null;
       }
     });
 
