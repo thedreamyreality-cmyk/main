@@ -34,7 +34,6 @@
             pointer-events: none;
         }
 
-        /* NAVIGATION: Slightly larger per your request */
         nav {
             display: flex;
             justify-content: space-between;
@@ -47,22 +46,20 @@
         .logo-font {
             text-transform: uppercase;
             letter-spacing: 0.3em;
-            font-size: 1.2rem; /* Increased size */
+            font-size: 1.2rem;
             text-decoration: none;
             color: white;
         }
 
         .nav-link {
-            font-size: 13px; /* Increased size */
+            font-size: 14px;
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.7);
             font-style: italic;
             text-decoration: none;
             margin-left: 3rem;
-            transition: 0.3s;
         }
-        .nav-link:hover { color: white; }
 
         .fluid-layout {
             display: grid;
@@ -85,18 +82,34 @@
             z-index: 20;
         }
 
-        /* BLENDED IMAGE: Using a mask to hide the "square" edges */
+        /* FULL PLANET ALIGNMENT */
+        .planet-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            grid-column: 1 / span 12;
+            flex-wrap: wrap;
+        }
+        .planet {
+            width: 35px; height: 35px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+
         .hero-image-box {
             grid-column: 1 / span 12;
             height: 500px;
             background-image: url('https://images.unsplash.com/photo-1464802686167-b939a67a06d1?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
-            /* This makes the image a soft circular glow instead of a hard square */
-            mask-image: radial-gradient(circle, black 30%, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
-            opacity: 0.4;
-            filter: saturate(0.2);
+            /* Radial mask creates a soft, blended circle effect */
+            mask-image: radial-gradient(circle, black 25%, transparent 75%);
+            -webkit-mask-image: radial-gradient(circle, black 25%, transparent 75%);
+            opacity: 0.45;
+            filter: saturate(0.3) contrast(1.1);
         }
 
         .hero-subtext {
@@ -109,7 +122,6 @@
             line-height: 1.6;
         }
 
-        /* SERVICE TEASERS */
         .services-preview {
             grid-column: 1 / span 12;
             display: flex;
@@ -117,44 +129,17 @@
             margin-top: 6rem;
             border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 3rem;
+            padding-bottom: 10rem;
         }
-
-        .service-item {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .service-tag {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.3em;
-            opacity: 0.5;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            font-style: italic;
-        }
+        .service-item { display: flex; flex-direction: column; gap: 0.5rem; }
+        .service-tag { font-size: 10px; text-transform: uppercase; letter-spacing: 0.3em; opacity: 0.5; }
+        .service-title { font-size: 1.5rem; font-style: italic; }
 
         @media (min-width: 1024px) {
             .hero-title { grid-column: 1 / span 9; }
-            .hero-image-box { grid-column: 5 / span 8; height: 700px; margin-top: -180px; }
-            .hero-subtext { grid-column: 1 / span 5; margin-top: -100px; }
-            .services-preview { grid-column: 1 / span 12; }
-        }
-
-        /* The Planets from your screenshot */
-        .planet-row {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            grid-column: 1 / span 6;
-        }
-        .planet {
-            width: 45px; height: 45px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.2);
+            .hero-image-box { grid-column: 5 / span 8; height: 750px; margin-top: -220px; }
+            .hero-subtext { grid-column: 1 / span 5; margin-top: -120px; }
+            .planet { width: 45px; height: 45px; }
         }
     </style>
 </head>
@@ -170,17 +155,11 @@
         </div>
     </nav>
 
-    <main class="fluid-layout pb-40">
-        
-        <div class="hero-title">
-            identity creates <br> outcome.
-        </div>
+    <main class="fluid-layout">
+        <div class="hero-title">identity creates <br> outcome.</div>
 
         <div class="planet-row">
-            <div class="planet"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=100'); background-size: cover; border:none;"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100'); background-size: cover; border:none;"></div>
-        </div>
+            <div class="planet" style="border: 1px solid rgba(255,255,255,0.4);"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614314104104-4811a505a428?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614249665742-5231794b969e?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614732414444-af9613f3d1a3?w=100'); border:none;"></div> <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100'); border:none;"></div> </div>
 
         <div class="hero-image-box"></div>
 
@@ -202,7 +181,6 @@
                 <h3 class="service-title">Guidance</h3>
             </div>
         </section>
-
     </main>
 
 </body>
