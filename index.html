@@ -8,114 +8,89 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --deep-midnight: #010204;
-            --nebula-blue: #0a1435; 
+            --dark-midnight: #010204;
+            --nebula-glow: #0a1435;
         }
 
         body { 
             font-family: 'Playfair Display', serif; 
-            background-color: var(--deep-midnight);
-            background: radial-gradient(circle at 50% 35%, var(--nebula-blue) 0%, var(--deep-midnight) 90%);
+            background: radial-gradient(circle at 50% 40%, var(--nebula-glow) 0%, var(--dark-midnight) 100%);
             color: #ffffff;
             margin: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
+            height: 200vh; /* Scroll room for your content */
         }
 
-        .stars-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(1px 1px at 20px 30px, white, rgba(0,0,0,0));
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: 0.1;
-            z-index: 1;
-            pointer-events: none;
-        }
-
+        /* TOP NAVIGATION SPLIT */
         nav {
+            position: absolute;
+            top: 40px;
+            width: 100%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 3rem 6%;
-            position: relative;
+            padding: 0 6%;
             z-index: 100;
         }
 
-        .logo-font { text-transform: uppercase; letter-spacing: 0.4em; font-size: 1rem; text-decoration: none; color: white; }
-        .nav-link { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); font-style: italic; text-decoration: none; margin-left: 2.5rem; }
+        .logo { font-size: 1rem; letter-spacing: 0.5em; text-transform: uppercase; }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { font-size: 11px; text-transform: uppercase; letter-spacing: 0.2em; opacity: 0.6; font-style: italic; }
 
-        .section-container { max-width: 1200px; margin: 0 auto; padding: 0 6%; position: relative; z-index: 10; }
+        /* THE HERO SECTION (MATCHING YOUR CANVA POSITIONS) */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            padding: 0 6%;
+        }
 
-        /* HERO */
-        .hero-title { font-size: clamp(3.5rem, 10vw, 7rem); line-height: 0.9; font-style: italic; margin: 10vh 0 2rem; }
-        .planet-row { display: flex; gap: 0.8rem; margin-bottom: 5rem; }
-        .planet { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.3); }
+        .hero-title {
+            position: absolute;
+            top: 25vh;
+            left: 6%;
+            font-size: clamp(4rem, 12vw, 9rem);
+            line-height: 0.85;
+            font-style: italic;
+            z-index: 50;
+        }
 
-        /* SECTIONS */
-        .content-block { margin-bottom: 15vh; }
-        .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.4em; opacity: 0.5; margin-bottom: 2rem; display: block; }
-        .heading-md { font-size: 2.5rem; font-style: italic; margin-bottom: 2rem; }
-        .body-text { color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 600px; }
+        .planet-line {
+            position: absolute;
+            top: 65vh;
+            left: 6%;
+            display: flex;
+            gap: 12px;
+            z-index: 50;
+        }
 
-        /* STEPS GRID */
-        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 4rem; }
-        .step-card { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; }
-        .step-num { font-style: italic; opacity: 0.4; margin-bottom: 1rem; display: block; }
-    </style>
-</head>
-<body>
+        .planet { width: 10px; height: 10px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); }
+        .planet.filled { background: white; }
 
-    <div class="stars-overlay"></div>
+        .hero-subtext {
+            position: absolute;
+            top: 75vh;
+            left: 6%;
+            max-width: 500px;
+            font-size: 1.3rem;
+            line-height: 1.5;
+            font-style: italic;
+            color: rgba(255,255,255,0.7);
+            z-index: 50;
+        }
 
-    <nav>
-        <a href="index.html" class="logo-font">THE DREAMY REALITY</a>
-        <div>
-            <a href="services.html" class="nav-link">services</a>
-            <a href="about.html" class="nav-link">about me</a>
-        </div>
-    </nav>
+        /* THE IMAGE: This sits behind and to the right, just like Canva */
+        .hero-image-container {
+            position: absolute;
+            top: 15vh;
+            right: 0;
+            width: 60%;
+            height: 80vh;
+            z-index: 10;
+        }
 
-    <main class="section-container">
-        <header class="content-block">
-            <h1 class="hero-title">identity creates <br> outcome.</h1>
-            <div class="planet-row">
-                <div class="planet"></div><div class="planet"></div><div class="planet"></div>
-                <div class="planet"></div><div class="planet"></div><div class="planet"></div>
-                <div class="planet"></div>
-            </div>
-            <p class="body-text italic">One on one coaching, tarot readings and spiritual guidance to guide you to your deepest desires and dreams.</p>
-        </header>
-
-        <section class="content-block">
-            <span class="label">WHO AM I</span>
-            <h2 class="heading-md">Welcome to your <br> Dreamy Reality.</h2>
-            <p class="body-text">I am a manifestation & mindset coach, helping you bridge the gap between your current reality and the life of your dreams. Through subconscious work and astrological insights, we create lasting transformation.</p>
-        </section>
-
-        <section class="content-block">
-            <span class="label">THE PROCESS</span>
-            <h2 class="heading-md">How it works.</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <span class="step-num">01. Discovery</span>
-                    <p class="body-text text-sm">We identify the limiting beliefs and self-concepts that are keeping you stuck in your current cycle.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-num">02. Alignment</span>
-                    <p class="body-text text-sm">Using personalized tools and astrological timing, we align your inner world with your outer desires.</p>
-                </div>
-                <div class="step-card">
-                    <span class="step-num">03. Embodiment</span>
-                    <p class="body-text text-sm">You step into the version of yourself that already has everything you've ever wanted.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-block text-center border-t border-white/10 pt-20">
-            <span class="label">CLIENT LOVE</span>
-            <p class="text-3xl italic">"Working with her completely shifted my perspective on what was possible for my life. I am now living the reality I used to only dream about."</p>
-        </section>
-    </main>
-
-</body>
-</html>
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Fades out the edges so it doesn't look like a square box */
+            mask-image: radial-gradient(ellipse at center, black 20%, transparent 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 8
