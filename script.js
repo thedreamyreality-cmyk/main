@@ -1,27 +1,45 @@
 // Scroll reveal animation
 const reveals = document.querySelectorAll(".reveal");
 
-window.addEventListener("scroll", () => {
+const revealOnScroll = () => {
   reveals.forEach(section => {
     const top = section.getBoundingClientRect().top;
     const windowHeight = window.innerHeight;
 
-    if (top < windowHeight - 100) {
+    if (top < windowHeight - 110) {
       section.classList.add("active");
     }
   });
-});
+};
 
-// Accordion
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
+
+// Accordion (dropdown services)
 const buttons = document.querySelectorAll(".accordion-btn");
 
 buttons.forEach(btn => {
+  // accessibility
+  btn.setAttribute("aria-expanded", "false");
+
   btn.addEventListener("click", () => {
     const panel = btn.nextElementSibling;
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
 
-    if (panel.style.maxHeight) {
+    // close others (optional, but feels cleaner)
+    buttons.forEach(other => {
+      if (other !== btn) {
+        other.setAttribute("aria-expanded", "false");
+        const otherPanel = other.nextElementSibling;
+        otherPanel.style.maxHeight = null;
+      }
+    });
+
+    if (isOpen) {
+      btn.setAttribute("aria-expanded", "false");
       panel.style.maxHeight = null;
     } else {
+      btn.setAttribute("aria-expanded", "true");
       panel.style.maxHeight = panel.scrollHeight + "px";
     }
   });
