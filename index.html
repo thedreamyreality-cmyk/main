@@ -100,4 +100,62 @@
             .hero-subtext { grid-column: 1 / span 4; margin-top: -80px; }
         }
 
-        .planet
+        .planet-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            grid-column: 1 / span 6;
+        }
+
+        .planet {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background-size: cover;
+        }
+
+        .nav-link {
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-overlay"></div>
+
+    <nav>
+        <a href="index.html" class="logo-font">The Dreamy Reality</a>
+        <div class="hidden md:flex items-center">
+            <a href="services.html" class="nav-link">services</a>
+            <a href="about.html" class="nav-link">about me</a>
+        </div>
+    </nav>
+
+    <main class="fluid-layout pb-40">
+        
+        <div class="hero-title">
+            identity creates <br> outcome.
+        </div>
+
+        <div class="planet-row">
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?w=100');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=100');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100');"></div>
+        </div>
+
+        <div class="hero-image-box"></div>
+
+        <div class="hero-subtext">
+            one on one coaching, tarot readings and spiritual guidance to guide you to your deepest desires and dreams.
+        </div>
+
+    </main>
+
+</body>
+</html>
