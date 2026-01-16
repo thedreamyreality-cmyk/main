@@ -1,103 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Dreamy Reality</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dreamy Reality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Darkened Blue Nebula */
+            --deep-midnight: #010204;
+            --nebula-glow: #081230; 
+        }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+        body { 
+            font-family: 'Playfair Display', serif; 
+            background: radial-gradient(circle at 50% 30%, var(--nebula-glow) 0%, var(--deep-midnight) 100%);
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.7;
+        }
+
+        /* NAVIGATION: LOGO LEFT / LINKS RIGHT */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 6%;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo { text-transform: uppercase; letter-spacing: 0.5em; font-size: 0.9rem; font-weight: 400; }
+        .nav-links a { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255, 255, 255, 0.6); font-style: italic; text-decoration: none; margin-left: 3rem; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 6%; }
+
+        /* HERO SECTION */
+        .hero { position: relative; padding: 10vh 0; }
+        .hero-title { font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9; font-style: italic; margin-bottom: 2rem; }
+        
+        /* THE PLANETS (Small line) */
+        .planets-line { display: flex; gap: 10px; margin-bottom: 3rem; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.4); }
+        .dot.filled { background: white; }
+
+        .hero-description { max-width: 500px; font-size: 1.25rem; font-style: italic; opacity: 0.8; }
+
+        /* ABOUT SECTION: IMAGE LEFT / TEXT RIGHT OVERLAP */
+        .about-section { 
+            display: grid; 
+            grid-template-columns: repeat(12, 1fr); 
+            gap: 20px; 
+            margin-top: 20vh;
+            align-items: center;
+        }
+
+        .about-img { 
+            grid-column: 1 / span 7; 
+            height: 600px; 
+            background: url('assets/about.png') center/cover;
+            mask-image: radial-gradient(circle, black 40%, transparent 95%);
+            -webkit-mask-image: radial-gradient(circle, black 40%, transparent 95%);
+            opacity: 0.5;
+        }
+
+        .about-content { grid-column: 7 / span 6; z-index: 20; }
+        .label { font-size: 10px; letter-spacing: 0.5em; opacity: 0.4; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+        .section-h2 { font-size: 3rem; font-style: italic; margin-bottom: 2rem; }
+
+        /* SERVICES GRID */
+        .services-section { margin-top: 20vh; padding-bottom: 10vh; }
+        .services-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 60px; 
+            margin-top: 4rem; 
+        }
+
+        .service-card { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+        .service-card h3 { font-size: 1.5rem; font-style: italic; margin-bottom: 1rem; }
+        .service-card p { font-size: 1rem; opacity: 0.6; }
+
+    </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="logo">THE DREAMY REALITY</div>
-  <nav>
-    <a href="#about">ABOUT</a>
-    <a href="#services">SERVICES</a>
-  </nav>
-</header>
+    <nav>
+        <div class="logo">THE DREAMY REALITY</div>
+        <div class="nav-links">
+            <a href="#services">SERVICES</a>
+            <a href="#about">ABOUT ME</a>
+        </div>
+    </nav>
 
-<section class="hero">
-  <img src="assets/planets.png" alt="planets" class="planets" />
-  <p class="hero-text">
-    one-on-one coaching, tarot readings, and<br>
-    spiritual guidance to guide you to your deepest<br>
-    desires and dreams.
-  </p>
-</section>
+    <div class="container">
+        
+        <header class="hero">
+            <h1 class="hero-title">identity <br> creates <br> outcome.</h1>
+            <div class="planets-line">
+                <div class="dot"></div><div class="dot filled"></div><div class="dot filled"></div>
+                <div class="dot"></div><div class="dot filled"></div><div class="dot"></div>
+                <div class="dot filled"></div>
+            </div>
+            <p class="hero-description">
+                one-on-one coaching, tarot readings, and spiritual guidance to guide you to your deepest desires and dreams.
+            </p>
+        </header>
 
-<section id="about" class="about">
-  <h2>ABOUT SYBIL</h2>
-  <div class="about-grid">
-    <img src="assets/about.png" alt="dreamy image" />
-    <div class="about-text">
-      <p>
-        human beings tend to look for purpose in their
-        lives and I’m here to help you find yours.
-      </p>
+        <section id="about" class="about-section">
+            <div class="about-img"></div>
+            <div class="about-content">
+                <span class="label">Who am I</span>
+                <h2 class="section-h2">About Sybil</h2>
+                <div class="space-y-6 opacity-70">
+                    <p>human beings tend to look for purpose in their lives and I’m here to help you find yours.</p>
+                    <p>from a young age, I always knew I was spiritually gifted. I have always had a deep sense of intuition and prophetic dreams and I use these abilities to create clarity in lives.</p>
+                    <p>I believe that as human beings we are limitless and our realities are reflections of our belief systems. I help deepen desires in lives and manifest them.</p>
+                </div>
+            </div>
+        </section>
 
-      <p>
-        from a young age, I always knew I was spiritually
-        gifted. I have always had a deep sense
-        intuition and prophetic dreams and I use
-        these abilities to create clarity in lives
-        my gifts.
-      </p>
+        <section id="services" class="services-section">
+            <span class="label">Offerings</span>
+            <h2 class="section-h2">Services</h2>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>1-1 coaching</h3>
+                    <p>one-on-one sessions spiritual manifestation coaching to go over what you’re currently struggling with and what you’d like to manifest and change.</p>
+                </div>
+                <div class="service-card">
+                    <h3>general tarot reading</h3>
+                    <p>a general reading for your life and current energies, as well as what is recommended for you during this time.</p>
+                </div>
+                <div class="service-card">
+                    <h3>tarot love reading</h3>
+                    <p>a love reading focusing on a specific person, current love energies or what’s coming next.</p>
+                </div>
+                <div class="service-card">
+                    <h3>channeled messages</h3>
+                    <p>a list of channeled messages for you based on what you need to know from spirit.</p>
+                </div>
+            </div>
+        </section>
 
-      <p>
-        I believe that as human beings we limitless
-        and our realities are reflections of our
-        belief systems that we hold on to. I help
-        deepen desires in lives and manifest them.
-      </p>
-
-      <p>
-        through tarot readings and spiritual coaching,
-        I help people find their destiny and claim it.
-      </p>
     </div>
-  </div>
-</section>
-
-<section id="services" class="services">
-  <h2>SERVICES</h2>
-
-  <div class="services-grid">
-    <div>
-      <h3>1-1 coaching</h3>
-      <p>
-        one-on-one sessions one on one
-        spiritual manifestation coaching to go over what
-        you’re currently struggling with and what you’d
-        like to manifest and change in your life.
-      </p>
-
-      <h3>general tarot reading</h3>
-      <p>
-        a general reading for your life and current
-        energies, as well as what is recommended for you
-        during this time.
-      </p>
-    </div>
-
-    <div>
-      <h3>tarot love reading</h3>
-      <p>
-        a love reading focusing on a specific person,
-        current love energies or what’s coming next as
-        well as advice for your unique situation.
-      </p>
-
-      <h3>channeled messages</h3>
-      <p>
-        a list of channeled messages for you based
-        on what you need to know from spirit.
-      </p>
-    </div>
-  </div>
-</section>
 
 </body>
 </html>
