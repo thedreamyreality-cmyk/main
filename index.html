@@ -1,127 +1,168 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dreamy Reality | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-midnight: #05070a;
+            --nebula-blue: #1a2a6c;
+        }
 
-export default function TarotCoachingSite() {
-  return (
-    <div className="min-h-screen bg-[#fdfcfb] text-stone-900 font-sans selection:bg-purple-100">
-      
-      {/* NAVIGATION */}
-      <nav className="fixed w-full bg-white/70 backdrop-blur-lg z-50 border-b border-stone-100">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-serif font-bold tracking-[0.2em] uppercase text-purple-900">Mystic Path</h1>
-          <div className="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.15em] text-stone-500">
-            <a href="#tarot" className="hover:text-purple-600 transition">Tarot Readings</a>
-            <a href="#coaching" className="hover:text-purple-600 transition">1:1 Coaching</a>
-            <a href="#about" className="hover:text-purple-600 transition">About</a>
-          </div>
-          <a href="#tarot" className="bg-stone-900 text-white px-5 py-2 text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-purple-800 transition">
-            Book Now
-          </a>
+        body { 
+            font-family: 'Playfair Display', serif; 
+            background-color: var(--deep-midnight);
+            /* Your deep blue nebula colors */
+            background: radial-gradient(circle at 50% 35%, var(--nebula-blue) 0%, var(--deep-midnight) 85%);
+            color: #ffffff;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* THE STARFIELD Overlay */
+        .stars-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 25px 35px, white, rgba(0,0,0,0)),
+                radial-gradient(1.5px 1.5px at 100px 150px, white, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 250px 250px;
+            opacity: 0.18;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* NAVIGATION: Singularity Style but your spacing */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 5%;
+            position: relative;
+            z-index: 100;
+        }
+
+        .logo-font {
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            font-size: clamp(0.9rem, 4vw, 1.1rem);
+            text-decoration: none;
+            color: white;
+        }
+
+        /* THE FLUID GRID: This mimics the Squarespace "Singularity" Layout */
+        .fluid-layout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* BOLD HERO TEXT (Singularity Style) */
+        .hero-title {
+            grid-column: 1 / span 12;
+            font-size: clamp(3.5rem, 10vw, 7.5rem);
+            line-height: 0.95;
+            font-style: italic;
+            margin-top: 5vh;
+            margin-bottom: 2rem;
+            z-index: 20;
+        }
+
+        /* OVERLAPPING IMAGE: Fading into the deep blue */
+        .hero-image-box {
+            grid-column: 1 / span 12;
+            height: 450px;
+            background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            opacity: 0.6;
+            filter: saturate(0.5);
+        }
+
+        /* SUBTEXT: Offset like the template */
+        .hero-subtext {
+            grid-column: 1 / span 11;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2rem;
+            max-width: 500px;
+            font-style: italic;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-title { grid-column: 1 / span 9; }
+            .hero-image-box { grid-column: 5 / span 8; height: 650px; margin-top: -150px; }
+            .hero-subtext { grid-column: 1 / span 4; margin-top: -80px; }
+        }
+
+        /* PLANET ALIGNMENT: Integrated into the grid */
+        .planet-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            grid-column: 1 / span 6;
+        }
+
+        .planet {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background-size: cover;
+        }
+
+        .nav-link {
+            font-size: 10px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+            text-decoration: none;
+            margin-left: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars-overlay"></div>
+
+    <nav>
+        <a href="index.html" class="logo-font">The Dreamy Reality</a>
+        <div class="hidden md:flex items-center">
+            <a href="services.html" class="nav-link">Offerings</a>
+            <a href="about.html" class="nav-link">About Me</a>
         </div>
-      </nav>
+    </nav>
 
-      {/* HERO SECTION */}
-      <header className="relative pt-40 pb-24 px-6 overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <span className="text-purple-600 font-medium tracking-[0.3em] uppercase text-xs mb-4 block">Ancient Wisdom • Modern Clarity</span>
-          <h2 className="text-5xl md:text-7xl font-serif leading-[1.1] mb-8 text-stone-800">
-            Find the answers <br /> 
-            <span className="italic font-light">written in the stars.</span>
-          </h2>
-          <p className="text-lg text-stone-500 max-w-xl mx-auto mb-10 leading-relaxed">
-            Personalized tarot insights and transformative life coaching to help you navigate your most important transitions.
-          </p>
-          <div className="flex flex-col md:flex-row justify-center gap-4">
-            <a href="#tarot" className="px-8 py-4 bg-purple-900 text-white rounded-full font-medium hover:bg-purple-800 transition shadow-lg shadow-purple-200">
-              Get a Reading
-            </a>
-            <a href="#coaching" className="px-8 py-4 bg-white border border-stone-200 text-stone-700 rounded-full font-medium hover:bg-stone-50 transition">
-              Explore Coaching
-            </a>
-          </div>
-        </div>
-        {/* Decorative Background Element */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-purple-100/40 rounded-full blur-3xl -z-10"></div>
-      </header>
-
-      {/* TAROT SECTION */}
-      <section id="tarot" className="py-24 px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h3 className="text-3xl md:text-4xl font-serif mb-4 text-stone-800">Tarot Services</h3>
-          <div className="w-12 h-[1px] bg-purple-400 mx-auto"></div>
+    <main class="fluid-layout pb-40">
+        
+        <div class="hero-title">
+            The Mirror <br> Of Reality.
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Card 1 */}
-          <div className="group bg-white border border-stone-100 p-10 rounded-[2rem] hover:border-purple-200 transition duration-500">
-            <span className="text-xs font-bold tracking-widest uppercase text-stone-400">01 — Email</span>
-            <h4 className="text-2xl font-serif mt-4 mb-4">The Clarity Spread</h4>
-            <p className="text-stone-500 text-sm leading-relaxed mb-8">A 3-card reading focused on a specific question. Delivered as a beautiful PDF within 48 hours.</p>
-            <div className="text-3xl font-serif mb-8 text-purple-900">$22</div>
-            <a href="YOUR_STRIPE_LINK" className="block w-full text-center py-4 border border-stone-900 text-stone-900 rounded-xl font-bold text-xs uppercase tracking-widest group-hover:bg-stone-900 group-hover:text-white transition">Purchase Reading</a>
-          </div>
-
-          {/* Card 2 - Highlighted */}
-          <div className="group bg-stone-900 p-10 rounded-[2rem] text-white shadow-2xl shadow-purple-200 transform md:-translate-y-4">
-            <span className="text-xs font-bold tracking-widest uppercase text-purple-400">02 — Deep Dive</span>
-            <h4 className="text-2xl font-serif mt-4 mb-4">The Soul Path</h4>
-            <p className="text-stone-400 text-sm leading-relaxed mb-8">A 10-card Celtic Cross reading exploring your hidden blocks and future potential. Includes a recorded audio summary.</p>
-            <div className="text-3xl font-serif mb-8 text-purple-300">$88</div>
-            <a href="YOUR_STRIPE_LINK" className="block w-full text-center py-4 bg-purple-500 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-purple-400 transition">Purchase Reading</a>
-          </div>
-
-          {/* Card 3 */}
-          <div className="group bg-white border border-stone-100 p-10 rounded-[2rem] hover:border-purple-200 transition duration-500">
-            <span className="text-xs font-bold tracking-widest uppercase text-stone-400">03 — Live</span>
-            <h4 className="text-2xl font-serif mt-4 mb-4">Live Reading</h4>
-            <p className="text-stone-500 text-sm leading-relaxed mb-8">A 30-minute private Zoom session. Real-time guidance and the ability to ask follow-up questions.</p>
-            <div className="text-3xl font-serif mb-8 text-purple-900">$65</div>
-            <a href="YOUR_STRIPE_LINK" className="block w-full text-center py-4 border border-stone-900 text-stone-900 rounded-xl font-bold text-xs uppercase tracking-widest group-hover:bg-stone-900 group-hover:text-white transition">Book Session</a>
-          </div>
+        <div class="planet-row">
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?w=100');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=100');"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100');"></div>
         </div>
-      </section>
 
-      {/* COACHING SECTION */}
-      <section id="coaching" className="py-24 px-6 bg-[#f7f5f2]">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
-          <div className="md:w-1/2">
-            <div className="aspect-[4/5] bg-stone-200 rounded-[3rem] overflow-hidden shadow-inner flex items-center justify-center text-stone-400 italic border border-stone-100">
-               {/* Replace with <img src="/your-photo.jpg" /> */}
-               [ Your Portrait Here ]
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <h2 className="text-sm uppercase tracking-[0.3em] text-purple-600 font-bold mb-4">Coaching</h2>
-            <h3 className="text-4xl md:text-5xl font-serif mb-6 text-stone-800">Align your life with <br/> your intuition.</h3>
-            <p className="text-stone-600 mb-8 leading-relaxed">
-              Spiritual coaching is for those who are ready to stop wandering and start walking their true path. We combine practical strategy with soulful alignment.
-            </p>
-            <div className="space-y-4 mb-10">
-              {['60-minute 1:1 Video Calls', 'Personalized Growth Plan', 'Direct Messaging Access'].map((item) => (
-                <div key={item} className="flex items-center text-stone-700">
-                  <span className="w-5 h-5 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mr-3 text-[10px]">✓</span>
-                  {item}
-                </div>
-              ))}
-            </div>
-            <a href="YOUR_CALENDLY_LINK" className="inline-block px-10 py-5 bg-stone-900 text-white rounded-full font-bold text-xs uppercase tracking-[0.2em] hover:bg-purple-900 transition shadow-xl">
-              Apply for Coaching
-            </a>
-          </div>
-        </div>
-      </section>
+        <div class="hero-image-box"></div>
 
-      {/* FOOTER */}
-      <footer id="contact" className="py-20 px-6 border-t border-stone-100 text-center">
-        <h4 className="font-serif text-2xl mb-8">Stay Connected</h4>
-        <div className="flex justify-center space-x-6 mb-12 text-stone-400 text-sm font-medium uppercase tracking-widest">
-          <a href="#" className="hover:text-purple-600 transition">Instagram</a>
-          <a href="#" className="hover:text-purple-600 transition">Email</a>
-          <a href="#" className="hover:text-purple-600 transition">TikTok</a>
+        <div class="hero-subtext">
+            One on one guidance, birth chart readings, and cosmic insight for clarity in love, work, and the assumption of your highest self.
         </div>
-        <p className="text-stone-400 text-[10px] uppercase tracking-widest">
-          &copy; 2026 YOUR NAME • Built with intention.
-        </p>
-      </footer>
-    </div>
-  );
-}
+
+    </main>
+
+</body>
+</html>
