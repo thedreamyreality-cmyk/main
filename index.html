@@ -15,7 +15,6 @@
         body { 
             font-family: 'Playfair Display', serif; 
             background-color: var(--deep-midnight);
-            /* Your original deep blue nebula colors */
             background: radial-gradient(circle at 50% 35%, var(--nebula-blue) 0%, var(--deep-midnight) 85%);
             color: #ffffff;
             margin: 0;
@@ -35,22 +34,35 @@
             pointer-events: none;
         }
 
+        /* NAVIGATION: Slightly larger per your request */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2.5rem 5%;
+            padding: 3rem 5%;
             position: relative;
             z-index: 100;
         }
 
         .logo-font {
             text-transform: uppercase;
-            letter-spacing: 0.25em;
-            font-size: clamp(0.9rem, 4vw, 1.1rem);
+            letter-spacing: 0.3em;
+            font-size: 1.2rem; /* Increased size */
             text-decoration: none;
             color: white;
         }
+
+        .nav-link {
+            font-size: 13px; /* Increased size */
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            text-decoration: none;
+            margin-left: 3rem;
+            transition: 0.3s;
+        }
+        .nav-link:hover { color: white; }
 
         .fluid-layout {
             display: grid;
@@ -73,55 +85,76 @@
             z-index: 20;
         }
 
+        /* BLENDED IMAGE: Using a mask to hide the "square" edges */
         .hero-image-box {
             grid-column: 1 / span 12;
-            height: 450px;
-            background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=2000');
+            height: 500px;
+            background-image: url('https://images.unsplash.com/photo-1464802686167-b939a67a06d1?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
             background-position: center;
-            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-            opacity: 0.6;
-            filter: saturate(0.5);
+            /* This makes the image a soft circular glow instead of a hard square */
+            mask-image: radial-gradient(circle, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle, black 30%, transparent 80%);
+            opacity: 0.4;
+            filter: saturate(0.2);
         }
 
         .hero-subtext {
             grid-column: 1 / span 11;
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 2rem;
-            max-width: 500px;
+            max-width: 600px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        /* SERVICE TEASERS */
+        .services-preview {
+            grid-column: 1 / span 12;
+            display: flex;
+            gap: 4rem;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 3rem;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .service-tag {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            opacity: 0.5;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
             font-style: italic;
         }
 
         @media (min-width: 1024px) {
             .hero-title { grid-column: 1 / span 9; }
-            .hero-image-box { grid-column: 5 / span 8; height: 650px; margin-top: -150px; }
-            .hero-subtext { grid-column: 1 / span 4; margin-top: -80px; }
+            .hero-image-box { grid-column: 5 / span 8; height: 700px; margin-top: -180px; }
+            .hero-subtext { grid-column: 1 / span 5; margin-top: -100px; }
+            .services-preview { grid-column: 1 / span 12; }
         }
 
+        /* The Planets from your screenshot */
         .planet-row {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
             grid-column: 1 / span 6;
         }
-
         .planet {
-            width: 40px; height: 40px;
+            width: 45px; height: 45px;
             border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.15);
-            background-size: cover;
-        }
-
-        .nav-link {
-            font-size: 10px;
-            letter-spacing: 0.25em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
-            font-style: italic;
-            text-decoration: none;
-            margin-left: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
         }
     </style>
 </head>
@@ -144,9 +177,9 @@
         </div>
 
         <div class="planet-row">
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614730321146-b6fa6a46bc46?w=100');"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=100');"></div>
-            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100');"></div>
+            <div class="planet"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=100'); background-size: cover; border:none;"></div>
+            <div class="planet" style="background-image: url('https://images.unsplash.com/photo-1614313913007-2b4ae8ce32d6?w=100'); background-size: cover; border:none;"></div>
         </div>
 
         <div class="hero-image-box"></div>
@@ -154,6 +187,21 @@
         <div class="hero-subtext">
             one on one coaching, tarot readings and spiritual guidance to guide you to your deepest desires and dreams.
         </div>
+
+        <section class="services-preview">
+            <div class="service-item">
+                <span class="service-tag">01</span>
+                <h3 class="service-title">Coaching</h3>
+            </div>
+            <div class="service-item">
+                <span class="service-tag">02</span>
+                <h3 class="service-title">Tarot</h3>
+            </div>
+            <div class="service-item">
+                <span class="service-tag">03</span>
+                <h3 class="service-title">Guidance</h3>
+            </div>
+        </section>
 
     </main>
 
