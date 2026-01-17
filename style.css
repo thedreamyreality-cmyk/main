@@ -25,7 +25,7 @@ button, input, textarea, select {
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding: 34px 70px;
+  padding: 22px 70px;   /* less vertical space */
 }
 
 .logo{
@@ -50,7 +50,7 @@ button, input, textarea, select {
 
 /* HERO */
 .hero{
-  padding: 18px 40px 60px; /* moved up */
+  padding: 0px 40px 60px;   /* remove top padding */
   display:flex;
   justify-content:center;
 }
@@ -62,8 +62,8 @@ button, input, textarea, select {
 }
 
 .planets{
-  max-width: 380px;     /* bigger */
-  margin: 0 auto 22px;  /* less gap above/below */
+  max-width: 380px;
+  margin: -10px auto 18px;  /* negative top margin pulls it up */
   display:block;
   opacity: .98;
 }
