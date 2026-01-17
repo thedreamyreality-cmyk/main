@@ -28,7 +28,8 @@ html, body {
   --line:rgba(236,236,244,.18);
 }
 
-body {
+/* Body = Playfair */
+body{
   font-family: "Playfair Display", serif;
   background: radial-gradient(circle at top, var(--bg1), var(--bg2));
   color: var(--text);
@@ -38,9 +39,10 @@ body {
 
 /* Force serif everywhere (fixes "Arial/Calibri" look on buttons) */
 button, input, textarea, select {
-  font-family:"Playfair Display", serif;
-  
- /* Titles = Times Condensed */
+  font-family: "Playfair Display", serif;
+}
+
+/* Titles = Times Condensed */
 .logo,
 .hero-title,
 .about-title,
@@ -49,26 +51,15 @@ h2,
 h3 {
   font-family: "Times Condensed", "Times New Roman", serif;
   font-weight: 400;
-  letter-spacing: 1.2px; /* was too wide */
+  letter-spacing: 1.2px;
 }
 
-/* Small labels = keep them clean and subtle */
-.kicker,
-.navlinks a {
+/* Small labels = subtle */
+.kicker{
   font-family: "Playfair Display", serif;
   font-weight: 400;
-  letter-spacing: 2px;
-  opacity: .85;
-}
-
-/* Body = Playfair */
-body{
-  font-family: "Playfair Display", serif;
-  font-weight: 400;
-}
-
-}
-
+  letter-spacing: 3px;
+  opacity: .62;
 }
 
 /* NAV */
@@ -76,19 +67,25 @@ body{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding: 22px 70px;   /* less vertical space */
+  padding: 22px 70px;
 }
 
 .logo{
   font-size: 1.7rem;
-  letter-spacing: .6px; /* tighter */
-  font-weight: 400;     /* thinner */
+  letter-spacing: .6px;
+  font-weight: 400;
+}
+
+.navlinks{
+  margin-left:auto;
+  display:flex;
+  gap:26px;
+  align-items:center;
 }
 
 .navlinks a{
   color: var(--text);
-  text-decoration:none;  /* removes link look */
-  margin-left: 26px;
+  text-decoration:none;
   font-size: .95rem;
   letter-spacing: 2px;
   opacity: .85;
@@ -101,7 +98,7 @@ body{
 
 /* HERO */
 .hero{
-  padding: 0px 40px 60px;   /* remove top padding */
+  padding: 0px 40px 60px;
   display:flex;
   justify-content:center;
 }
@@ -110,19 +107,67 @@ body{
   width: min(900px, 92vw);
   text-align:center;
   padding-top: 10px;
+  position: relative;
+}
+
+.hero-inner::before{
+  content:"";
+  position:absolute;
+  top: 26px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 420px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(255,255,255,.10), rgba(255,255,255,0));
+  filter: blur(16px);
+  pointer-events:none;
+  z-index: 0;
+}
+
+.hero-inner > *{
+  position: relative;
+  z-index: 1;
 }
 
 .planets{
-  width: 420px;                 /* slightly bigger */
-  max-width: 70vw;
+  width: 320px;
+  max-width: 78vw;
   display:block;
-  margin: -18px auto 14px;      /* pull up, tighter spacing */
-  transform: translateY(-6px);  /* lifts them */
+  margin: -8px auto 34px;
+  opacity: .92;
   filter:
-    drop-shadow(0 16px 26px rgba(0,0,0,.45))
-    saturate(0.95)
-    contrast(1.05);
-  opacity: .95;
+    saturate(.9)
+    contrast(1.06)
+    drop-shadow(0 18px 28px rgba(0,0,0,.45));
+}
+
+.hero-title{
+  font-size: clamp(3.4rem, 5vw, 4.8rem);
+  line-height: 0.98;     /* IMPORTANT: couture headline */
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin: 0 0 30px;
+}
+
+.hero-text{
+  max-width: 720px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.planets{
+  width: 320px;            /* smaller = more elegant */
+  max-width: 78vw;
+  display:block;
+  margin: -8px auto 34px;  /* more space before title */
+  opacity: .92;
+
+  /* makes them feel embedded, not sticker-ish */
+  filter:
+    saturate(.9)
+    contrast(1.06)
+    drop-shadow(0 18px 28px rgba(0,0,0,.45));
 }
 
 .hero-inner{
@@ -150,10 +195,11 @@ body{
 
 .hero-title{
   font-size: clamp(3.4rem, 5vw, 4.8rem);
-  line-height: 0.95;     /* tighter, more couture */
+  line-height: 1.9;     /* tighter, more couture */
   letter-spacing: 1px;   /* cleaner */
   font-weight: 400;
-  margin-top: 10px;
+  margin-top: 0;
+  margin-bottom:30px
 }
 
 .hero-text{
