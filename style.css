@@ -113,10 +113,39 @@ body{
 }
 
 .planets{
-  max-width: 380px;
-  margin: -10px auto 18px;  /* negative top margin pulls it up */
+  width: 420px;                 /* slightly bigger */
+  max-width: 70vw;
   display:block;
-  opacity: .98;
+  margin: -18px auto 14px;      /* pull up, tighter spacing */
+  transform: translateY(-6px);  /* lifts them */
+  filter:
+    drop-shadow(0 16px 26px rgba(0,0,0,.45))
+    saturate(0.95)
+    contrast(1.05);
+  opacity: .95;
+}
+
+.hero-inner{
+  position: relative;
+}
+
+.hero-inner::before{
+  content:"";
+  position:absolute;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 520px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(255,255,255,.10), rgba(255,255,255,0));
+  filter: blur(10px);
+  pointer-events:none;
+  z-index: 0;
+}
+
+.hero-inner > *{
+  position: relative;
+  z-index: 1;
 }
 
 .hero-title{
