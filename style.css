@@ -40,17 +40,33 @@ body {
 button, input, textarea, select {
   font-family:"Playfair Display", serif;
   
- .logo,
+ /* Titles = Times Condensed */
+.logo,
 .hero-title,
 .about-title,
 h1,
 h2,
-h3,
-.kicker {
+h3 {
   font-family: "Times Condensed", "Times New Roman", serif;
-  letter-spacing: 2px;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 1.2px; /* was too wide */
+}
+
+/* Small labels = keep them clean and subtle */
+.kicker,
+.navlinks a {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  letter-spacing: 2px;
+  opacity: .85;
+}
+
+/* Body = Playfair */
+body{
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+}
+
 }
 
 }
@@ -104,10 +120,11 @@ h3,
 }
 
 .hero-title{
-  font-size: clamp(2.8rem, 4.2vw, 3.9rem);
-  letter-spacing: 2px;
-  font-weight: 700;
-  margin-bottom: 18px;
+  font-size: clamp(3.4rem, 5vw, 4.8rem);
+  line-height: 0.95;     /* tighter, more couture */
+  letter-spacing: 1px;   /* cleaner */
+  font-weight: 400;
+  margin-top: 10px;
 }
 
 .hero-text{
