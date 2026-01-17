@@ -1,3 +1,17 @@
+@font-face {
+  font-family: "Times Condensed";
+  src: url("fonts/Times New Roman MT Condensed Regular/Times New Roman MT Condensed Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Times Condensed";
+  src: url("fonts/Times New Roman MT Condensed Bold/Times New Roman MT Condensed Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root{
