@@ -1,3 +1,9 @@
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
+}
+
 @font-face {
   font-family: "Times Condensed";
   src: url("fonts/Times New Roman MT Condensed Regular/Times New Roman MT Condensed Regular.otf") format("opentype");
