@@ -20,15 +20,16 @@ body {
 button, input, textarea, select {
   font-family:"Playfair Display", serif;
   
-  .logo,
+ .logo,
 .hero-title,
+.about-title,
 h1,
 h2,
 h3,
 .kicker {
-  font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
-  letter-spacing: 2px;
-  font-weight: 400;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 }
@@ -84,7 +85,7 @@ h3,
 .hero-title{
   font-size: clamp(2.8rem, 4.2vw, 3.9rem);
   letter-spacing: 2px;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 18px;
 }
 
