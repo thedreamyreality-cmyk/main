@@ -18,6 +18,18 @@ body{
 /* Force serif everywhere (fixes "Arial/Calibri" look on buttons) */
 button, input, textarea, select {
   font-family:"Playfair Display", serif;
+  
+  .logo,
+.hero-title,
+h1,
+h2,
+h3,
+.kicker {
+  font-family: "Didot", "Bodoni MT", "Times New Roman", serif;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
 }
 
 /* NAV */
