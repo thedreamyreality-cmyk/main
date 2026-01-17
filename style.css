@@ -41,8 +41,9 @@ h1,
 h2,
 h3,
 .kicker {
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 600;
+  font-family: "Times Condensed", "Times New Roman", serif;
+  letter-spacing: 2px;
+  font-weight: 400;
   letter-spacing: 1px;
 }
 
