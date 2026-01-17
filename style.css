@@ -8,11 +8,12 @@
   --line:rgba(236,236,244,.18);
 }
 
-body{
-  font-family:"Playfair Display", serif;
+body {
+  font-family: "Inter", sans-serif;
   background: radial-gradient(circle at top, var(--bg1), var(--bg2));
   color: var(--text);
   line-height: 1.75;
+  font-weight: 400;
 }
 
 /* Force serif everywhere (fixes "Arial/Calibri" look on buttons) */
