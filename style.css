@@ -136,7 +136,7 @@ h1,h2,h3{
 .sky{
   position:absolute;
   inset:-10%;
-  background-image: url("assets/clouds.jpg"); /* make sure this path matches */
+  background-image: url("assets/clouds.png"); /* make sure this path matches */
   background-size: cover;
   background-position: center;
   transform: scale(1.15);
