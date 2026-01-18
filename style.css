@@ -98,7 +98,7 @@ h3 {
 
 /* HERO */
 /* =========================
-   CLOUD HERO SECTION
+   DREAMY ANIMATED CLOUD HERO
    ========================= */
 
 .hero.hero-clouds{
@@ -111,41 +111,85 @@ h3 {
   padding: 0;
 }
 
-/* moving cloud background */
-.cloud-layer{
+/* base sky image */
+.sky{
   position:absolute;
-  inset:0;
-  background-image: url("assets/clouds.jpg"); /* make sure filename matches */
+  inset:-6%;
+  background-image: url("assets/clouds.jpg");
   background-size: cover;
   background-position: center;
-  animation: cloudDrift 140s linear infinite;
-  transform: scale(1.15);
+  transform: scale(1.08);
   z-index:0;
 }
 
-/* dark overlay for readability */
+/* animated mist layers (pure CSS, no extra images) */
+.mist{
+  position:absolute;
+  inset:-30%;
+  z-index:1;
+  opacity:.55;
+  filter: blur(2px);
+  background:
+    radial-gradient(circle at 20% 45%, rgba(255,255,255,.18), rgba(255,255,255,0) 55%),
+    radial-gradient(circle at 55% 40%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%),
+    radial-gradient(circle at 80% 55%, rgba(255,255,255,.12), rgba(255,255,255,0) 58%);
+  transform: translate3d(0,0,0);
+  mix-blend-mode: screen;
+}
+
+.mist-a{
+  animation: driftA 26s linear infinite;
+  opacity:.35;
+}
+
+.mist-b{
+  animation: driftB 42s linear infinite;
+  opacity:.28;
+}
+
+.mist-c{
+  animation: driftC 62s linear infinite;
+  opacity:.22;
+}
+
+/* overlay for readability (keeps your moody navy vibe) */
 .cloud-overlay{
   position:absolute;
   inset:0;
+  z-index:2;
   background: linear-gradient(
     to bottom,
-    rgba(5,7,15,.88),
-    rgba(5,7,15,.55),
-    rgba(5,7,15,.88)
+    rgba(5,7,15,.82),
+    rgba(5,7,15,.45),
+    rgba(5,7,15,.86)
   );
-  z-index:1;
+}
+
+.hero.hero-clouds::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,.03),
+    rgba(255,255,255,.03) 1px,
+    rgba(0,0,0,0) 2px,
+    rgba(0,0,0,0) 4px
+  );
+  opacity:.12;
+  pointer-events:none;
 }
 
 /* hero content */
 .hero.hero-clouds .hero-inner{
   position: relative;
-  z-index:2;
+  z-index:3;
   text-align:center;
   padding: 120px 40px 80px;
   max-width: 960px;
 }
 
-/* headline */
 .hero-title{
   font-size: clamp(3.6rem, 5vw, 5rem);
   line-height: 0.95;
@@ -154,7 +198,6 @@ h3 {
   font-weight: 400;
 }
 
-/* subtitle */
 .hero-text{
   max-width: 720px;
   margin: 0 auto;
@@ -163,12 +206,21 @@ h3 {
   line-height: 1.9;
 }
 
-/* cloud animation */
-@keyframes cloudDrift{
-  from{ background-position: 0% 50%; }
-  to{ background-position: 100% 50%; }
+/* animations */
+@keyframes driftA{
+  from{ transform: translate3d(-2%, -1%, 0); }
+  to{ transform: translate3d(2%, 1%, 0); }
 }
 
+@keyframes driftB{
+  from{ transform: translate3d(3%, 0%, 0); }
+  to{ transform: translate3d(-3%, 0.8%, 0); }
+}
+
+@keyframes driftC{
+  from{ transform: translate3d(-4%, 1%, 0); }
+  to{ transform: translate3d(4%, -1%, 0); }
+}
 
 /* SECTIONS */
 section{
