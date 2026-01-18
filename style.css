@@ -114,12 +114,16 @@ h3 {
 /* base sky image */
 .sky{
   position:absolute;
-  inset:-6%;
-  background-image: url("assets/clouds.png");
+  inset:-10%;
+  background-image: url("assets/clouds.jpg");
   background-size: cover;
   background-position: center;
-  transform: scale(1.08);
+  transform: scale(1.15);
   z-index:0;
+
+  /* stronger blending */
+  opacity: .28;
+  filter: brightness(.55) contrast(.9) saturate(.75);
 }
 
 /* animated mist layers (pure CSS, no extra images) */
