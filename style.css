@@ -94,9 +94,10 @@ h1,h2,h3{
 .navlinks a:hover{ opacity: 1; }
 
 /* =========================
-   DREAMY ANIMATED CLOUD HERO
+   MOON / OCEAN HERO
    ========================= */
-.hero.hero-clouds{
+
+.hero.hero-moon{
   position: relative;
   min-height: 100vh;
   display:flex;
@@ -104,88 +105,32 @@ h1,h2,h3{
   justify-content:center;
   overflow:hidden;
   padding: 0;
-}
 
-/* cloud image layer (BLENDED MORE) */
-.sky{
-  position:absolute;
-  inset:-12%;
   background-image: url("assets/clouds.png");
   background-size: cover;
   background-position: center;
-  transform: scale(1.18);
-  z-index:0;
-  opacity: .22; /* lower so it blends */
-  filter: brightness(.45) contrast(.85) saturate(.7);
+  background-repeat: no-repeat;
+
+  /* blend into your navy background */
+  filter: saturate(.85) contrast(.95) brightness(.82);
 }
 
-/* extra tint to make it match your navy background */
-.sky-tint{
+/* dark overlay so text stays readable */
+.hero.hero-moon .hero-overlay{
   position:absolute;
   inset:0;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(15,23,54,.25), rgba(5,7,15,.85)),
+    linear-gradient(to bottom, rgba(5,7,15,.55), rgba(5,7,15,.78));
   z-index:1;
-  background:
-    radial-gradient(circle at 50% 35%, rgba(15,23,54,.45), rgba(5,7,15,.75)),
-    linear-gradient(to bottom, rgba(5,7,15,.65), rgba(5,7,15,.85));
-  mix-blend-mode: multiply;
-  pointer-events:none;
 }
 
-/* animated mist layers */
-.mist{
-  position:absolute;
-  inset:-30%;
-  z-index:2;
-  filter: blur(2px);
-  background:
-    radial-gradient(circle at 20% 45%, rgba(255,255,255,.18), rgba(255,255,255,0) 55%),
-    radial-gradient(circle at 55% 40%, rgba(255,255,255,.14), rgba(255,255,255,0) 60%),
-    radial-gradient(circle at 80% 55%, rgba(255,255,255,.12), rgba(255,255,255,0) 58%);
-  transform: translate3d(0,0,0);
-  mix-blend-mode: screen;
-  opacity:.28; /* subtle */
-}
-
-.mist-a{ animation: driftA 26s linear infinite; }
-.mist-b{ animation: driftB 42s linear infinite; opacity:.22; }
-.mist-c{ animation: driftC 62s linear infinite; opacity:.18; }
-
-/* vignette for readability */
-.cloud-vignette{
-  position:absolute;
-  inset:0;
-  z-index:3;
-  background: linear-gradient(
-    to bottom,
-    rgba(5,7,15,.78),
-    rgba(5,7,15,.35),
-    rgba(5,7,15,.86)
-  );
-  pointer-events:none;
-}
-
-/* soft film grain */
-.hero.hero-clouds::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:3;
-  background-image: repeating-linear-gradient(
-    0deg,
-    rgba(255,255,255,.03),
-    rgba(255,255,255,.03) 1px,
-    rgba(0,0,0,0) 2px,
-    rgba(0,0,0,0) 4px
-  );
-  opacity:.10;
-  pointer-events:none;
-}
-
-.hero.hero-clouds .hero-inner{
+/* hero content */
+.hero.hero-moon .hero-inner{
   position: relative;
-  z-index:4;
+  z-index:2;
   text-align:center;
-  padding: 110px 40px 80px;
+  padding: 120px 40px 80px;
   max-width: 960px;
 }
 
