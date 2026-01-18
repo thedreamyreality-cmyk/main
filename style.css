@@ -110,7 +110,7 @@ h1,h2,h3{
 .sky{
   position:absolute;
   inset:-12%;
-  background-image: url("assets/clouds.jpg");
+  background-image: url("assets/clouds.png");
   background-size: cover;
   background-position: center;
   transform: scale(1.18);
