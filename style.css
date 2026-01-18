@@ -412,6 +412,40 @@ h2{
   .about-title {
     font-size: 2.4rem;
   }
+
+  /* Constellation (replaces planets) */
+.constellation{
+  width: min(520px, 78vw);
+  margin: 6px auto 26px; /* spacing above headline */
+  opacity: .9;
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,.45));
 }
 
+.constellation svg{
+  width: 100%;
+  height: auto;
+  display:block;
 }
+
+.c-line{
+  stroke: rgba(236,236,244,.55);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.c-star{
+  fill: rgba(236,236,244,.95);
+}
+
+.c-dust{
+  fill: rgba(236,236,244,.35);
+}
+
+/* subtle glow */
+.constellation{
+  filter:
+    drop-shadow(0 0 12px rgba(236,236,244,.08))
+    drop-shadow(0 18px 28px rgba(0,0,0,.45));
+}
+
