@@ -25,18 +25,15 @@
 
   <section class="hero hero-clouds">
 
-  <!-- sky background -->
   <div class="sky"></div>
+  <div class="sky-tint"></div>
 
-  <!-- moving cloud/mist layers -->
   <div class="mist mist-a"></div>
   <div class="mist mist-b"></div>
   <div class="mist mist-c"></div>
 
-  <!-- dark overlay so text reads -->
-  <div class="cloud-overlay"></div>
+  <div class="cloud-vignette"></div>
 
-  <!-- content -->
   <div class="hero-inner">
     <h1 class="hero-title">IDENTITY CREATES<br>OUTCOME</h1>
     <p class="hero-text">
@@ -66,44 +63,51 @@
     </div>
   </section>
 
-  <!-- SERVICES -->
   <section id="services" class="services reveal">
-    <p class="kicker">OFFERINGS</p>
-    <h2>Services</h2>
+  <div class="services-wrap">
 
-    <div class="accordion">
+    <!-- left -->
+    <div class="services-left">
+      <p class="kicker">OFFERINGS</p>
+      <h2 class="services-title">Services</h2>
 
-      <button class="accordion-btn" type="button">
-        <span>1–1 Coaching</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p>One-on-one sessions spiritual manifestation coaching to go over what you’re currently struggling with and what you’d like to manifest and change.</p>
+      <a class="btn services-btn" href="services.html">VIEW SERVICES</a>
+
+      <div class="accordion" style="margin-top:28px;">
+        <button class="accordion-btn" aria-expanded="false">
+          <span>1–1 Coaching</span><span class="plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>one-on-one sessions spiritual manifestation coaching to go over what you’re currently struggling with and what you’d like to manifest and change.</p>
+        </div>
+
+        <button class="accordion-btn" aria-expanded="false">
+          <span>General Tarot Reading</span><span class="plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>a general reading for your life and current energies, as well as what is recommended for you during this time.</p>
+        </div>
+
+        <button class="accordion-btn" aria-expanded="false">
+          <span>Tarot Love Reading</span><span class="plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>a love reading focusing on a specific person, current love energies or what’s coming next.</p>
+        </div>
+
+        <button class="accordion-btn" aria-expanded="false">
+          <span>Channeled Messages</span><span class="plus">+</span>
+        </button>
+        <div class="accordion-panel">
+          <p>a list of channeled messages for you based on what you need to know from spirit.</p>
+        </div>
       </div>
+    </div>
 
-      <button class="accordion-btn" type="button">
-        <span>General Tarot Reading</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p>A general reading for your life and current energies, as well as what is recommended for you during this time.</p>
-      </div>
-
-      <button class="accordion-btn" type="button">
-        <span>Tarot Love Reading</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p>a love reading focusing on a specific person, current love energies or what’s coming next.</p>
-      </div>
-
-      <button class="accordion-btn" type="button">
-        <span>Channeled Messages</span>
-        <span class="plus">+</span>
-      </button>
-      <div class="accordion-panel">
-        <p>A list of 6-8 channeled messages for you based on what you need to know from spirit.</p>
-      </div>
+    <!-- right -->
+    <div class="services-right" aria-hidden="true">
+      <img class="services-orb" src="assets/orb.gif" alt="">
+    </div>
 
     </div>
   </section>
