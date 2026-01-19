@@ -431,3 +431,92 @@ section{
     max-width: 560px;
   }
 }
+
+/* =========================
+   BOOKINGS PAGE (AMIRA-STYLE LIST)
+   ========================= */
+
+.bookings-page{
+  width: min(1100px, calc(100% - 80px));
+  margin-inline: auto;
+  padding-block: clamp(70px, 7vw, 120px);
+}
+
+.bookings-header{
+  text-align: center;
+  margin-bottom: clamp(34px, 5vw, 70px);
+}
+
+.bookings-title{
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  letter-spacing: 3px;
+  margin: 10px 0 14px;
+}
+
+.bookings-sub{
+  max-width: 70ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.bookings-list{
+  margin-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.booking-item{
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: clamp(18px, 4vw, 50px);
+  padding: 34px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: start;
+}
+
+.booking-name{
+  font-size: 1.9rem;
+  letter-spacing: .7px;
+  margin-bottom: 12px;
+}
+
+.booking-desc{
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.85;
+}
+
+.booking-meta{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  padding-top: 6px;
+}
+
+.booking-price{
+  font-family: "Times Condensed","Times New Roman",serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  opacity: .9;
+}
+
+@media (max-width: 980px){
+  .bookings-page{
+    width: min(900px, calc(100% - 48px));
+    padding-block: 80px;
+  }
+
+  .booking-item{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .booking-meta{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
