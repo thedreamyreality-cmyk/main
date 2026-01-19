@@ -349,93 +349,75 @@ section{
 }
 
 /* =========================
-   ABOUT PAGE LAYOUT (FIXED)
+   ABOUT SPREAD (EDITORIAL)
    ========================= */
 
 .about-page{
-  width: min(1100px, calc(100% - 80px));
+  padding: 110px 120px 140px;
+}
+
+.about-spread{
+  width: min(1200px, 100%);
   margin-inline: auto;
-  padding-block: clamp(64px, 6vw, 110px);
-}
-
-/* header */
-.about-header{
-  text-align: center;
-  margin-bottom: clamp(36px, 5vw, 64px);
-}
-
-.about-title{
-  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
-  letter-spacing: 3px;
-  margin-top: 10px;
-}
-
-/* main layout */
-.about-layout{
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr; /* image dominant */
-  gap: clamp(36px, 6vw, 90px);
+  grid-template-columns: 1.35fr 0.9fr;
+  gap: clamp(40px, 6vw, 90px);
   align-items: start;
 }
 
-/* image */
-.about-image img{
+/* Left side */
+.about-header-left{
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+.about-columns .about-content{
+  max-width: none;
+  column-count: 2;
+  column-gap: 48px;
+}
+
+/* Make paragraphs behave nicely inside columns */
+.about-columns .about-content p{
+  break-inside: avoid;
+  margin: 0 0 18px 0;
+  font-size: 1.02rem;
+  line-height: 1.85;
+  color: var(--muted);
+}
+
+/* Right side image */
+.about-spread-right{
+  display: flex;
+  justify-content: center;
+}
+
+.about-spread-right .about-image img{
   width: 100%;
+  max-width: 520px;
   height: auto;
   display: block;
   border-radius: 8px;
   box-shadow: 0 40px 120px rgba(0,0,0,.55);
   opacity: .97;
-  transform: translateY(-10px); /* subtle lift */
 }
 
-.about-image{
-  position: relative;
-}
-
-.about-image img{
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 40px 120px rgba(0,0,0,.55);
-  transform: translateY(-12px);
-}
-
-.about-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius: 8px;
-  background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.35));
-  pointer-events:none;
-}
-
-/* text column */
-.about-content{
-  max-width: 68ch; /* better reading width than 720px */
-}
-
-.about-content p{
-  font-size: 1.05rem;
-  line-height: 1.85;
-  color: var(--muted);
-  margin: 0;
-}
-
-.about-content p + p{
-  margin-top: 16px; /* consistent rhythm */
-}
-
-/* responsive */
+/* Responsive */
 @media (max-width: 980px){
   .about-page{
-    width: min(900px, calc(100% - 48px));
-    padding-block: 72px;
+    padding: 90px 40px 110px;
   }
 
-  .about-layout{
+  .about-spread{
     grid-template-columns: 1fr;
-    gap: 42px;
+    gap: 48px;
+  }
+
+  .about-columns .about-content{
+    column-count: 1;
+  }
+
+  .about-spread-right .about-image img{
+    max-width: 520px;
   }
 }
