@@ -389,6 +389,19 @@ section{
   transform: translateY(-10px); /* subtle lift */
 }
 
+.about-image{
+  position: relative;
+}
+
+.about-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: 8px;
+  background: linear-gradient(to bottom, rgba(0,0,0,.05), rgba(0,0,0,.35));
+  pointer-events:none;
+}
+
 /* text column */
 .about-content{
   max-width: 68ch; /* better reading width than 720px */
