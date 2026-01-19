@@ -393,6 +393,15 @@ section{
   position: relative;
 }
 
+.about-image img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 40px 120px rgba(0,0,0,.55);
+  transform: translateY(-12px);
+}
+
 .about-image::after{
   content:"";
   position:absolute;
