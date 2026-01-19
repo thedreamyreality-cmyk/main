@@ -373,9 +373,9 @@ section{
 /* main layout */
 .about-layout{
   display: grid;
-  grid-template-columns: 0.95fr 1.15fr;
-  gap: clamp(28px, 5vw, 64px);
-  align-items: start; /* key fix: stops weird vertical centering */
+  grid-template-columns: 1.15fr 0.85fr; /* image dominant */
+  gap: clamp(36px, 6vw, 90px);
+  align-items: start;
 }
 
 /* image */
@@ -383,9 +383,10 @@ section{
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 6px;
-  box-shadow: 0 30px 80px rgba(0,0,0,.45);
-  opacity: .95;
+  border-radius: 8px;
+  box-shadow: 0 40px 120px rgba(0,0,0,.55);
+  opacity: .97;
+  transform: translateY(-10px); /* subtle lift */
 }
 
 /* text column */
