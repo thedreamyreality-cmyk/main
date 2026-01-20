@@ -461,7 +461,6 @@ section{
   line-height: 1.85;
 }
 
-/* list */
 .services-list{
   margin-top: 14px;
   border-top: 1px solid var(--line);
@@ -503,8 +502,20 @@ section{
   opacity: .9;
 }
 
-/* responsive */
 @media (max-width: 980px){
   .services-page{
     width: min(900px, calc(100% - 48px));
-    padding-
+    padding-block: 80px;
+  }
+
+  .service-item{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .service-meta{
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
