@@ -558,4 +558,37 @@ section{
     justify-content: space-between;
     align-items: center;
   }
+
+  /* =========================
+   TYPOGRAPHY SYNC (HOME)
+   Make WHO AM I + OFFERINGS match
+   Make About Sybil + Services match
+   ========================= */
+
+/* WHO AM I / OFFERINGS */
+.kicker{
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: .72rem;
+  letter-spacing: 3px;
+  opacity: .62;
+  text-transform: uppercase;
 }
+
+/* About Sybil / Services (same exact heading style) */
+.section-title{
+  font-family: "Times Condensed","Times New Roman",serif;
+  font-weight: 400;
+  font-size: 3.1rem;     /* adjust if you want smaller: 2.8rem */
+  letter-spacing: 1px;
+  line-height: 1.05;
+  margin: 10px 0 14px;
+}
+
+/* IMPORTANT: stop services-title from overriding the size */
+.services-title{
+  font-size: inherit;
+  letter-spacing: inherit;
+  margin: 10px 0 14px;
+}
+
