@@ -164,26 +164,6 @@ section{
   padding: 0;
 }
 
-/* ABOUT */
-.about-grid{
-  display:grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 70px;
-  align-items:center;
-}
-
-.about-img{
-  width:100%;
-  border-radius: 4px;
-  transform: translateX(-10px);
-}
-
-.about-text p{
-  font-size: 1.05rem;
-  color: var(--muted);
-  margin-bottom: 22px;
-}
-
 /* BUTTON */
 .btn{
   display:inline-block;
