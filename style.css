@@ -201,6 +201,10 @@ section{
   background: rgba(236,236,244,.06);
 }
 
+.logo{
+  text-decoration: none;
+  color: var(--text);
+}
 
 /* =========================
    SERVICES (LAYOUT + ORB)
