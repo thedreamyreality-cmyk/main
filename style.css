@@ -160,6 +160,8 @@ h1,h2,h3{
 /* SECTIONS */
 section{
   padding: 80px 120px;
+  .about-page section{
+  padding: 0;
 }
 
 /* ABOUT */
