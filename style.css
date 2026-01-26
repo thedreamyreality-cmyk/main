@@ -699,3 +699,33 @@ main.bookings-page .booking-item{
   }
 }
 
+/* SERVICES PAGE (accordion version) */
+.services-page{
+  width: min(1180px, calc(100% - 80px));
+  margin: 0 auto;
+  padding: 110px 0 120px;
+}
+
+.services-header{
+  text-align:center;
+  margin-bottom: 60px;
+}
+
+.services-sub{
+  max-width: 70ch;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.services-full{
+  padding: 0;
+}
+
+/* Make the button inside accordion panel sit nicely */
+.accordion-panel .btn{
+  margin-top: 14px;
+}
+
+
