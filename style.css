@@ -647,3 +647,25 @@ main.bookings-page{
     align-items: center;
   }
 }
+
+/* === FORCE HOME SECTION TYPOGRAPHY MATCH === */
+
+/* WHO AM I + OFFERINGS */
+#about .kicker,
+#services .kicker{
+  font-size: 0.75rem !important;
+  letter-spacing: 3px !important;
+  opacity: 0.6 !important;
+  text-transform: uppercase !important;
+}
+
+/* About Sybil + Services */
+#about .section-title,
+#services .section-title{
+  font-family: "Times Condensed","Times New Roman",serif !important;
+  font-size: 3.2rem !important;
+  letter-spacing: 1px !important;
+  line-height: 1.05 !important;
+  margin: 10px 0 14px !important;
+}
+
