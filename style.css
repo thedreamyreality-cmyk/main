@@ -728,4 +728,16 @@ main.bookings-page .booking-item{
   margin-top: 14px;
 }
 
+/* tighten spacing between BOOK NOW and next service */
+.accordion-panel{
+  padding-bottom: 8px !important;
+}
+
+.accordion-panel .btn{
+  margin-bottom: 6px !important;
+}
+
+.accordion-btn{
+  padding-top: 18px !important;
+}
 
