@@ -741,3 +741,7 @@ main.bookings-page .booking-item{
   padding-top: 18px !important;
 }
 
+/* remove extra divider line */
+.accordion-panel{
+  border-bottom: none !important;
+}
