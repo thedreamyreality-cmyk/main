@@ -591,4 +591,20 @@ section{
   letter-spacing: inherit;
   margin: 10px 0 14px;
 }
+  /* ===== STEP 1: stop HOME services styles from messing up services.html ===== */
+
+/* Home page (the section with id="services") */
+#services .services-title{
+  font-size: 3.1rem;
+  letter-spacing: 1px;
+  margin: 10px 0 14px;
+}
+
+/* Services page (services.html) */
+.services-page .services-title{
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  letter-spacing: 3px;
+  margin: 10px 0 14px;
+}
+
 
