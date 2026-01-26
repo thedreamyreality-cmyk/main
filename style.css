@@ -607,4 +607,15 @@ section{
   margin: 10px 0 14px;
 }
 
+/* ===== STEP 2: widen services page layout ===== */
+.services-page{
+  width: min(1200px, calc(100% - 120px)) !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 980px){
+  .services-page{
+    width: calc(100% - 48px) !important;
+  }
+}
 
