@@ -745,3 +745,17 @@ main.bookings-page .booking-item{
 .accordion-panel{
   border-bottom: none !important;
 }
+/* === SERVICES PAGE: clean vertical rhythm === */
+
+.booking-item{
+  padding: 28px 0 !important;
+}
+
+.booking-desc{
+  margin-bottom: 8px !important;
+}
+
+.booking-meta{
+  padding-top: 2px !important;
+}
+
