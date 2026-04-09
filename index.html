@@ -252,6 +252,94 @@
     padding-top: 0.2rem;
   }
 
+  /* TIKTOK SECTION */
+  .tiktok {
+    padding: 5rem 4rem;
+    background: #F5F5F5;
+    border-top: 0.5px solid #e8edf2;
+  }
+
+  .tiktok-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+  }
+
+  .tiktok-handle {
+    font-size: 0.58rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8a9aaa;
+    text-decoration: none;
+    border-bottom: 1px solid #c8d8e8;
+    padding-bottom: 0.2rem;
+    transition: color 0.3s;
+  }
+
+  .tiktok-handle:hover { color: #1b3a5c; }
+
+  .tiktok-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .tiktok-thumb {
+    aspect-ratio: 9/16;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    text-decoration: none;
+  }
+
+  .tiktok-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .tiktok-thumb:hover img { transform: scale(1.03); }
+
+  .tiktok-thumb-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(13,27,42,0.7) 0%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .tiktok-thumb:hover .tiktok-thumb-overlay { opacity: 1; }
+
+  .tiktok-thumb-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #ffffff;
+    line-height: 1.5;
+  }
+
+  .tiktok-footer {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .tiktok-footer a {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #1b3a5c;
+    text-decoration: none;
+    border-bottom: 1px solid #1b3a5c;
+    padding-bottom: 0.3rem;
+  }
+
   /* CLOSING */
   .closing {
     background: #0d1b2a;
@@ -312,6 +400,8 @@
     .about { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
     .svcs { padding: 3rem 2rem 4rem; }
     .svc { grid-template-columns: 35px 1fr auto; gap: 1rem; }
+    .tiktok { padding: 4rem 2rem; }
+    .tiktok-grid { gap: 0.75rem; }
     .closing { padding: 5rem 2rem; }
     footer { padding: 2rem; flex-direction: column; gap: 1rem; text-align: center; }
     hr { margin: 0 2rem; }
@@ -332,13 +422,13 @@
   <section class="hero">
     <div class="hero-text">
       <h1>Don't be realistic.<br><em>Be divine.</em></h1>
-      <p class="hero-sub">Create your own destiny.</p>
+      <p class="hero-sub">Reality is a choice. Choose yours.</p>
       <a href="#offerings" class="cta">Begin here</a>
     </div>
     <div class="orb-wrap">
       <div class="orb">
         <div class="orb-inner">
-          <p class="orb-text">Your life is the greatest story ever told. Make it divine.</p>
+          <p class="orb-text">Remember what you already know.</p>
         </div>
       </div>
     </div>
@@ -352,8 +442,8 @@
       <h2 class="a-name">Sybil</h2>
     </div>
     <div class="a-body">
-      <p>From a young age I felt things others couldn't name, from prophetic dreams and an intuition that didn't make sense until it did.</p>
-      <p>I'm here to help you remember what you already know: that you are divine, that your desires are real and that a life that truly feels like yours is not too much to ask for.</p>
+      <p>From a young age I felt things others couldn't name — prophetic dreams, a pull toward something deeper, and intuition that didn't make sense until it did.</p>
+      <p>I'm here to help you remember what you already know: that you are divine, that your desires are real, and that a life that truly feels like yours is not too much to ask for.</p>
       <a href="#offerings">Work with me</a>
     </div>
   </section>
@@ -366,7 +456,7 @@
         <span class="svc-name">Tarot Reading</span>
         <span class="svc-desc">A general or focused reading based on what you need to know right now about your current situation.</span>
       </div>
-      <a href="https://shop.beacons.ai/thedreamyreality/0c891423-9572-4f12-a8ca-bdcc7ce48386" class="svc-a">Book &rarr;</a>
+      <a href="#" class="svc-a">Book &rarr;</a>
     </div>
     <div class="svc">
       <span class="svc-n">02</span>
@@ -374,7 +464,7 @@
         <span class="svc-name">1:1 Coaching</span>
         <span class="svc-desc">Divine Feminine coaching to help you embody your inner divine and call in what is yours.</span>
       </div>
-      <a href="https://shop.beacons.ai/thedreamyreality/362d1ad6-acac-40d5-824a-3dc1e3a42b87" class="svc-a">Apply &rarr;</a>
+      <a href="#" class="svc-a">Apply &rarr;</a>
     </div>
     <div class="svc">
       <span class="svc-n">03</span>
@@ -382,7 +472,7 @@
         <span class="svc-name">Divine Feminine Course</span>
         <span class="svc-desc">An entry point into understanding the Divine Feminine energy within you.</span>
       </div>
-      <a href="https://shop.beacons.ai/thedreamyreality/c15787fd-b458-463d-a3d4-7ecd7e4350cb" class="svc-a">Explore &rarr;</a>
+      <a href="#" class="svc-a">Explore &rarr;</a>
     </div>
     <div class="svc" id="community">
       <span class="svc-n">04</span>
@@ -390,15 +480,37 @@
         <span class="svc-name">The Community</span>
         <span class="svc-desc">A monthly space for women who feel too much, want too much and refuse to settle.</span>
       </div>
-      <a href="https://www.patreon.com/cw/thedreamyreality" class="svc-a">Join &rarr;</a>
+      <a href="#" class="svc-a">Join &rarr;</a>
     </div>
-    <div class="svc" id="Business Coaching">
-      <span class="svc-n">05</span>
-      <div class="svc-body">
-        <span class="svc-name">Spiritual Business Coaching</span>
-        <span class="svc-desc">Coaching for those who feel called to start their own spiritual business.</span>
-      </div>
-      <a href="https://shop.beacons.ai/thedreamyreality/4b1bed53-209d-4cf5-8337-957f2adce752" class="svc-a">Enquire &rarr;</a>
+  </section>
+
+  <section class="tiktok">
+    <div class="tiktok-header">
+      <span class="s-label">Latest</span>
+      <a href="https://tiktok.com/@thedreamyreality" class="tiktok-handle">@thedreamyreality</a>
+    </div>
+    <div class="tiktok-grid">
+      <a href="https://tiktok.com/@thedreamyreality" class="tiktok-thumb" target="_blank">
+        <img src="tiktok1.png" alt="to be divine in a world full of ordinary people">
+        <div class="tiktok-thumb-overlay">
+          <span class="tiktok-thumb-text">to be divine in a world full of ordinary people</span>
+        </div>
+      </a>
+      <a href="https://tiktok.com/@thedreamyreality" class="tiktok-thumb" target="_blank">
+        <img src="tiktok2.png" alt="h2O just add water & manifestation">
+        <div class="tiktok-thumb-overlay">
+          <span class="tiktok-thumb-text">h2O just add water &amp; manifestation</span>
+        </div>
+      </a>
+      <a href="https://tiktok.com/@thedreamyreality" class="tiktok-thumb" target="_blank">
+        <img src="tiktok3.png" alt="the sun & manifestation">
+        <div class="tiktok-thumb-overlay">
+          <span class="tiktok-thumb-text">the sun &amp; manifestation</span>
+        </div>
+      </a>
+    </div>
+    <div class="tiktok-footer">
+      <a href="https://tiktok.com/@thedreamyreality" target="_blank">Follow along on TikTok &rarr;</a>
     </div>
   </section>
 
